@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:TrackWorkout.CustomRenderer" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.NoteInformation">
+    <ContentPage.Content>
+
+        <Grid x:Name="Stack" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="300"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView x:Name="FillerBox2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+            <BoxView x:Name="FillerBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+            <BoxView  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Transparent"/>
+
+            <Image x:Name="ProfilePicture" Grid.Row="1" Grid.Column="0"/>
+
+            <Label x:Name="NoteTitle"                   
+                VerticalOptions="End" 
+                HorizontalOptions="Start" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="15"
+                   Margin="10,15,0,0"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                                 Command="{Binding RefreshCommand}"
+                                 Refreshing="WhileRefreshing"
+                                 RefreshColor="Blue"
+                                 x:Name="RefreshingLayout"
+                                 VerticalOptions="FillAndExpand"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2">
+                <ScrollView x:Name="NoteContent"
+                        HorizontalOptions="Start">
+                    <Grid x:Name="gridStack">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                    </Grid>
+                </ScrollView>
+            </RefreshView>
+            <Frame x:Name="NoteFrame" HasShadow="False" Padding="1" Grid.Row="3" Grid.ColumnSpan="2" Margin="0,0,0,10">
+                <local:EditorXF x:Name="Notes" Placeholder="Note" VerticalOptions="StartAndExpand" HeightRequest="300" BackgroundColor="White" TextColor="Gray" ></local:EditorXF>
+            </Frame>
+            <Frame BackgroundColor="#393939"
+                   Opacity=".90"
+                   Padding="1"
+                   CornerRadius="100"
+                   x:Name="DoneAnimationFrame"
+                   IsVisible="False"
+                   Grid.Row="2"
+                   Grid.RowSpan="2"
+                   Grid.ColumnSpan="2"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="CenterAndExpand"
+                   >
+                <forms:AnimationView x:Name="DoneAnimation"
+                                 OnFinish="AnimationComplete"
+                             WidthRequest="200"
+                             HeightRequest="200"
+                             Animation="MessageSent.json"
+                             IsVisible="False"                             
+                             />
+            </Frame>
+            <Grid  x:Name="ButtonRow" RowSpacing="0" Grid.Row="4" Grid.ColumnSpan="2" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+                <ImageButton x:Name="BackButton"
+                             Source="Back.png"
+                             Grid.Column="0"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                              Margin="10,5,0,5"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                                  />
+                <Frame Grid.Column="3"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="MainFrame"
+                       />
+
+                <!--<ImageButton x:Name="Routine"
+                             Source="Routine.png"
+                             Grid.Column="4"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"                             
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoRoutine"/>-->
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

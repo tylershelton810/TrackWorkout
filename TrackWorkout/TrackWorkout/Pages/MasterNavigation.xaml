@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackWorkout.MasterNavigation"
+             Title="Menu"   
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             BackgroundColor="#393939"
+             Icon="menu.png">
+
+    <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="CoachMETransparent.png" Grid.Column="0" Grid.Row="0" VerticalOptions="Fill" Grid.ColumnSpan="2" HorizontalOptions="Fill" BackgroundColor="#393939" Opacity=".90"/>
+
+         <lottie:AnimationView HorizontalOptions="FillAndExpand"
+                                  VerticalOptions="FillAndExpand"
+                                  Animation="DownArrow.json"
+                                  AutoPlay="False"
+                                  Loop="False"
+                               IsEnabled="False"/>
+
+        <Grid  RowSpacing="2" ColumnSpacing="0" BackgroundColor="Transparent" Margin="0,0,0,50" VerticalOptions="End" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="1">
+                <ImageButton x:Name="Client" 
+                                 Clicked="ClientButtonClick" 
+                                 Source="Client.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="ClientButton" 
+                        Text="Clients" 
+                        Grid.Column="1" 
+                        Grid.Row="1"  
+                        Clicked="ClientButtonClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                        TextColor="#ffc107">
+            </Button>
+
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="0">
+                <ImageButton x:Name="Routine" 
+                                 Clicked="RoutineClick" 
+                                 Source="Routine.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="RoutineButton" 
+                        Text="Routines" 
+                        Grid.Column="1" 
+                        Grid.Row="0"  
+                        Clicked="RoutineClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                        TextColor="#ffc107">
+            </Button>
+
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="2">
+                <ImageButton x:Name="Coach" 
+                                 Clicked="CoachClick" 
+                                 Source="Coach.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="CoachButton" 
+                        Text="Coach" 
+                        Grid.Column="1" 
+                        Grid.Row="2"  
+                        Clicked="CoachClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                        TextColor="#ffc107">
+            </Button>
+
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="3">
+                <ImageButton x:Name="Home" 
+                                 Clicked="HomeClick" 
+                                 Source="Home.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="HomeButton" 
+                        Text="Home" 
+                        Grid.Column="1" 
+                        Grid.Row="3"  
+                        Clicked="HomeClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                    
+                        TextColor="#ffc107">
+            </Button>
+
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="4">
+                <ImageButton x:Name="Settings" 
+                                 Clicked="SettingsClick" 
+                                 Source="Settings.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="SettingsButton" 
+                        Text="Settings" 
+                        Grid.Column="1" 
+                        Grid.Row="4"  
+                        Clicked="SettingsClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                    
+                        TextColor="#ffc107">
+            </Button>
+
+            <Frame Padding="1" 
+                       HasShadow="False" 
+                       CornerRadius="35" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center"
+                       BackgroundColor="White" 
+                       Grid.Column="0" 
+                       Grid.Row="5">
+                <ImageButton x:Name="SupportUs" 
+                                 Clicked="SupportUsClick" 
+                                 Source="Support.png" 
+                                 BackgroundColor="#5bdcb6" 
+                                 CornerRadius="25" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50">
+
+                </ImageButton>
+            </Frame>
+            <Button x:Name="SupportUsButton" 
+                        Text="Support Us!" 
+                        Grid.Column="1" 
+                        Grid.Row="5"  
+                        Clicked="SupportUsClick" 
+                        HorizontalOptions="Start"
+                        VerticalOptions="Center"
+                        FontSize="20"  
+                        BackgroundColor="Transparent" 
+                    
+                        TextColor="#ffc107">
+            </Button>
+
+
+        </Grid>
+    </Grid>
+
+</ContentPage>

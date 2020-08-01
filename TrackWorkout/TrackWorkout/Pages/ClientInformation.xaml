@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackWorkout.Pages.ClientInformation">
+    <ContentPage.Content>
+        <Grid x:Name="Stack" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="AUTO"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="AUTO"/>
+            </Grid.RowDefinitions>
+
+
+
+            <BoxView BackgroundColor="White" Grid.Row="0"/>
+            <Label x:Name="NoteTitle" 
+                   Text="TestName"
+                VerticalOptions="End" 
+                HorizontalOptions="Center" 
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   FontSize="55"
+                   Margin="10,15,0,0"
+                   Grid.Row="0"/>
+
+            <BoxView BackgroundColor="White" Grid.Row="1"/>
+            <Grid Grid.Row="1" ColumnSpacing="0" RowSpacing="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout Grid.Column="0" >
+                    <Label x:Name="WeightTitle"
+                        Text="Weight"
+                        BackgroundColor="White"
+                        TextColor = "Black"
+                           HorizontalOptions="Center"
+                        FontAttributes="Bold"                         
+                        IsEnabled="False"/>
+                    <Label x:Name="Weight"
+                        Text="WeightValue"
+                        BackgroundColor="White"
+                        TextColor = "Black"
+                           HorizontalOptions="Center"
+                        FontAttributes="Bold"                         
+                        IsEnabled="False"/>
+                </StackLayout>
+                <StackLayout Grid.Column="1" >
+                    <Label x:Name="StatusTitle"
+                        Text="Status"
+                        BackgroundColor="White"
+                        TextColor = "Black"
+                           HorizontalOptions="Center"
+                        FontAttributes="Bold"                         
+                        IsEnabled="False"/>
+                    <Label x:Name="Status"
+                        Text="StatusValue"
+                        BackgroundColor="White"
+                        TextColor = "Black"
+                           HorizontalOptions="Center"
+                        FontAttributes="Bold"                         
+                        IsEnabled="False"/>
+                </StackLayout>
+            </Grid>
+
+            <Image Source="GradientBlue.png"  Aspect="AspectFill" Grid.Row="2"/>
+            <BoxView BackgroundColor="#5bc2dc" Grid.Row="3"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

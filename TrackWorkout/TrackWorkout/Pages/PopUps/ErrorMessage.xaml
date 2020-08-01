@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popup:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"    
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackWorkout.Pages.PopUps.ErrorMessage">
+    <Grid HeightRequest="265"
+          VerticalOptions="End"
+          HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.RowSpan="2"
+               HeightRequest="225"
+               Padding="0"
+               VerticalOptions="Fill"               
+               BackgroundColor="Transparent">
+            <Grid VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>               
+                <Frame Grid.Row="1"
+                       CornerRadius="30"
+                       HorizontalOptions="FillAndExpand"
+                       BackgroundColor="White">
+                    <StackLayout Orientation="Vertical"
+                             VerticalOptions="Center"
+                                 Margin="0,0,0,40"
+                             HorizontalOptions="Center">
+                        <Label x:Name="MessageHeader"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="#E10555"
+                           HorizontalTextAlignment="Center"/>
+                        <Label x:Name="MessageBody"
+                           TextColor="#363636"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                           FontSize="15"/>
+                    </StackLayout>
+                </Frame>
+                <Image Source="Warning.png"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Start"
+                       Aspect="Fill"
+                       HeightRequest="80"
+                       WidthRequest="80"
+                       Grid.RowSpan="2"/>
+            </Grid>
+        </Frame>
+        <Button Grid.Row="1"
+                x:Name="MessageButton"
+                TextColor="White"
+                HeightRequest="45"
+                BackgroundColor="#E10555"
+                Clicked="Button_Clicked"/>
+    </Grid>
+</popup:PopupPage>

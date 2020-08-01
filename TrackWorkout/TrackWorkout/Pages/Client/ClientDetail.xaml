@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:controls="clr-namespace:Refractored.XamForms.PullToRefresh;assembly=Refractored.XamForms.PullToRefresh"
+             x:Class="TrackWorkout.Pages.Client.ClientsDetail"
+             BackgroundColor="#f5f5f5"
+             Title="Clients">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <!--Body-->
+            </Grid.RowDefinitions>
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="#f5f5f5" Grid.Row="0">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="NoClientLabel"
+                               Grid.Row="0"
+                               HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                                   VerticalOptions="Center"
+                               Text="Click + button to add a new client"></Label>
+                    <forms:AnimationView x:Name="NoClientAnimation"
+                             WidthRequest="200"
+                             HeightRequest="400"
+                             Animation="DownArrow.json"
+                             Rotation="23"
+                             AutoPlay="True"
+                             Grid.Row="1"
+                             HorizontalOptions="Center"
+                             Margin="0,0,0,40"
+                             VerticalOptions="End"/>
+                    <RefreshView IsRefreshing="{Binding IsRefreshing}"
+                                 Command="{Binding RefreshCommand}"
+                                 Refreshing="WhileRefreshing"
+                                 RefreshColor="Blue"
+                                 x:Name="RefreshingLayout"
+                                 VerticalOptions="StartAndExpand"                                                 
+                                 Grid.Row="0"
+                                 Grid.RowSpan="2">
+                        <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand">
+                            <StackLayout x:Name="gridStack" >
+                            </StackLayout>
+                        </ScrollView>
+                    </RefreshView>
+                </Grid>
+            </StackLayout>
+
+            <Grid  RowSpacing="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+
+                <Frame Grid.Column="2"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                                     WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="PlusFrame2"
+                       >
+                    <Frame HasShadow="False"
+                           CornerRadius="27"
+                           x:Name="PlusFrame"
+                           >
+                        <ImageButton x:Name="PlusButton"
+                                 Source="PlusSymbol.png"
+                                     Clicked="AddNewClient"
+                                 BackgroundColor="#5bdcb6"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddNewClient"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

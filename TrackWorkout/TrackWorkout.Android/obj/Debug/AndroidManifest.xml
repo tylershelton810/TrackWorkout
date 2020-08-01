@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.2" package="com.companyname.TrackWorkout" android:installLocation="preferExternal">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="29" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+  <uses-permission android:name="android.permission.GET_TASKS" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <application android:label="TrackWorkout.Android" android:icon="@drawable/coachmetransparent" android:name="androidx.multidex.MultiDexApplication" android:allowBackup="true" android:debuggable="true">
+    <uses-library android:name="org.apache.http.legacy" android:required="false" />
+    <activity android:configChanges="orientation|screenSize" android:icon="@drawable/barbell" android:label="coachME" android:launchMode="singleInstance" android:screenOrientation="portrait" android:theme="@style/MainTheme" android:name="crc64147bb61de705103a.MainActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:host="dev--28cyisb.auth0.com" />
+        <data android:pathPrefix="/android/com.companyname.trackworkout/callback" />
+        <data android:scheme="com.companyname.trackworkout" />
+      </intent-filter>
+    </activity>
+    <activity android:name="microsoft.identity.client.AuthenticationActivity" />
+    <activity android:configChanges="orientation|screenSize" android:label="Sign in" android:name="crc64ed1888fb4925e3b7.AuthenticationAgentActivity" />
+    <activity android:configChanges="orientation|screenSize" android:name="crc646957603ea1820544.MediaPickerActivity" />
+    <service android:name="crc64396a3fe5f8138e3f.KeepAliveService" />
+    <activity android:label="Web Authenticator" android:name="crc64f98dd38067c0c88b.FormAuthenticatorActivity" />
+    <activity android:label="Web Authenticator" android:name="crc64f98dd38067c0c88b.WebAuthenticatorActivity" />
+    <activity android:name="crc64f98dd38067c0c88b.CustomUrlSchemeCallbackActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="xamarin.auth" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="xamarinauth" />
+      </intent-filter>
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="localhost" />
+      </intent-filter>
+    </activity>
+    <activity android:label="@string/title_activity_webview" android:theme="@android:style/Theme.DeviceDefault" android:name="crc64f98dd38067c0c88b.WebViewActivity" />
+    <activity android:label="Web Authenticator Native Broswer" android:launchMode="singleTop" android:noHistory="true" android:name="crc64f98dd38067c0c88b.WebAuthenticatorNativeBrowserActivity" />
+    <receiver android:name="crc64f98dd38067c0c88b.CustomTabsActionsBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Battery Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.BatteryBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Energy Saver Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.EnergySaverBroadcastReceiver" />
+    <receiver android:enabled="true" android:exported="false" android:label="Essentials Connectivity Broadcast Receiver" android:name="crc64a0e0a82d0db9a07d.ConnectivityBroadcastReceiver" />
+    <provider android:authorities="com.companyname.TrackWorkout.fileProvider" android:exported="false" android:grantUriPermissions="true" android:name="xamarin.essentials.fileProvider">
+      <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/xamarin_essentials_fileprovider_file_paths" />
+    </provider>
+    <receiver android:enabled="true" android:exported="false" android:name="crc643f46942d9dd1fff9.PowerSaveModeBroadcastReceiver" />
+    <provider android:name="mono.android.MultiDexLoader" android:exported="false" android:initOrder="1999999999" android:authorities="com.companyname.TrackWorkout.mono.android.MultiDexLoader.__mono_init__" />
+    <provider android:name="mono.MonoRuntimeProvider" android:exported="false" android:initOrder="1999999998" android:authorities="com.companyname.TrackWorkout.mono.MonoRuntimeProvider.__mono_init__" />
+    <!--suppress ExportedReceiver-->
+    <receiver android:name="mono.android.Seppuku">
+      <intent-filter>
+        <action android:name="mono.android.intent.action.SEPPUKU" />
+        <category android:name="mono.android.intent.category.SEPPUKU.com.companyname.TrackWorkout" />
+      </intent-filter>
+    </receiver>
+  </application>
+</manifest>

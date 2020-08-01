@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderer="clr-namespace:TrackWorkout.CustomRenderer" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.SupportUs.SupportUs"
+             BackgroundColor = "White">
+    <ContentPage.Content>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <!--Header Row-->
+                <RowDefinition Height="*" />
+                <!--Body-->
+            </Grid.RowDefinitions>
+
+
+            <StackLayout x:Name="MainStack" VerticalOptions="FillAndExpand" BackgroundColor="White" Grid.Row="0" Spacing="0">
+
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand">
+                    <StackLayout x:Name="gridStack" Spacing="5" Margin="0,5,0,0">
+                        <Label Text="Merch!"
+                               HorizontalOptions="Center"
+                               x:Name="TeeSpringLabel"/>
+                        <Frame Padding="2"
+                               HorizontalOptions="Center"
+                               HasShadow="False"
+                               x:Name="TeeSpringFrame"                               
+                               VerticalOptions="Center"
+                               BackgroundColor="Red">
+                            <ImageButton HorizontalOptions="Center"
+                                    HeightRequest="100"
+                                    Clicked="TeeSpringCick"
+                                    Source="TeeSpringBanner.png"/>
+                        </Frame>
+                    </StackLayout>
+
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <Grid  RowSpacing="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+
+                <Frame Grid.Column="2"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                       IsVisible="False"
+                                     WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="MainButtonFrame"
+                       >
+                    <ImageButton x:Name="MainButton"
+                                 Source="Finish.png"
+                                 IsVisible="False"
+                                     CornerRadius="27"
+                                 BackgroundColor="#5bdcb6"/>
+                </Frame>
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

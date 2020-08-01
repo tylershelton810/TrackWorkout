@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<popup:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+                   xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"    
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.PopUps.Loading">
+    <Grid BackgroundColor="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="350"/>
+        </Grid.RowDefinitions>
+        <Frame Grid.Row="1"
+               Padding="0"
+               CornerRadius="10"
+               Margin="30,0,30,100">
+            <Grid BackgroundColor="#363636">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <forms:AnimationView x:Name="LoadingProfileIcon"
+                             WidthRequest="200"
+                             HeightRequest="200"
+                             Animation="Loading5.json"
+                             Loop="True"
+                             AutoPlay="True"
+                             IsVisible="True"
+                             Grid.Row="0"
+                             HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand"/>
+                <Grid Grid.Row="1"
+                  HorizontalOptions="Center"
+                      Margin="0,0,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="MessageText"
+                       TextColor="White"
+                       Text=""
+                       VerticalOptions="Center"
+                       Grid.Column="0"
+                       HorizontalOptions="End">
+                    </Label>
+                    <forms:AnimationView x:Name="LoadingMessageDots"
+                                     WidthRequest="25"
+                                     HeightRequest="25"
+                                     Animation="LoadingDots.json"
+                                     Loop="True"
+                                     HorizontalOptions="Start"
+                                     Margin="5,7,0,0"
+                                     AutoPlay="True"
+                                     IsVisible="True"
+                                     Grid.Column="1">
+
+                    </forms:AnimationView>
+                </Grid>
+            </Grid>
+        </Frame>
+    </Grid>
+</popup:PopupPage>

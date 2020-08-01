@@ -1,0 +1,204 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ApplicationIcon></ApplicationIcon>
+    <Version>1.1.0</Version>
+    <SignAssembly>false</SignAssembly>
+    <Win32Resource />
+    <AssemblyOriginatorKeyFile>Tyler Shelton.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.446" />
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="3.0.3" />
+    <PackageReference Include="ContextViewCell" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    <PackageReference Include="System.Xml.XDocument" Version="4.3.0" />
+    <PackageReference Include="uikit" Version="2.25.0" />
+    <PackageReference Include="Xam.Plugin.SimpleAudioPlayer" Version="1.3.0" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Firebase.Core" Version="60.1142.1" />
+    <PackageReference Include="ExpandableView" Version="1.0.10" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.7.1" />
+    <PackageReference Include="Auth0.OidcClient.Core" Version="3.1.2" />
+    <PackageReference Include="FormsCurvedBottomNavigation" Version="1.2.0" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Refractored.XamForms.PullToRefresh" Version="2.4.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="Xamarin.Auth" Version="1.5.0" />
+    <PackageReference Include="PCLCrypto" Version="2.0.147" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.4.0" />
+    <PackageReference Include="Json.Net" Version="1.0.21" />
+    <PackageReference Include="Xamarin.Forms" Version="4.5.0.725" />
+    <PackageReference Include="Microcharts" Version="0.7.1" />
+    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\AddClient.xaml.cs" />
+    <Compile Remove="Pages\ClientDetail.xaml.cs" />
+    <Compile Remove="Pages\ClientInformation.xaml.cs" />
+    <Compile Remove="Pages\Clients.xaml.cs" />
+    <Compile Remove="Pages\LogIn.xaml.cs" />
+    <Compile Remove="Pages\PickExercise.xaml.cs" />
+    <Compile Remove="Pages\RoutineInformationEdit.xaml.cs" />
+    <Compile Remove="Pages\RoutineInProgress.xaml.cs" />
+    <Compile Remove="Pages\Routines.xaml.cs" />
+    <Compile Remove="Pages\RoutinesDetail.xaml.cs" />
+    <Compile Remove="Pages\RoutineSummary.xaml.cs" />
+    <Compile Remove="CustomRenderer\CustomEntry.cs" />
+    <Compile Remove="CustomRenderer\CustomEntry.cs" />
+    <Compile Remove="Pages\Coach\ClientRoutine.xaml.cs" />
+    <Compile Remove="Services\AzureB2C.cs" />
+    <Compile Remove="Services\AzureB2Cconstants.cs" />
+    <Compile Remove="Services\GoogleServices.cs" />
+    <Compile Remove="Services\IAuth0Client.cs" />
+    <Compile Remove="Services\Auth0ClientOptions.cs" />
+    <Compile Remove="Pages\ViewModel\GoogleViewModel.cs" />
+    <Compile Remove="Pages\Views\GoogleProfileCsPage.cs" />
+    <Compile Remove="Entitys\Auth0Client.cs" />
+    <Compile Remove="Auth0Login.cs" />
+    <Compile Remove="Pages\Routine\RoutineDetailBottomNav.cs" />
+    <Compile Remove="Pages\Routine\MyPage.xaml.cs" />
+    <Compile Remove="Pages\Routine\RoutineDetailBottomNav.xaml.cs" />
+    <Compile Remove="Pages\Routine\RoutinesDetailBottomNavMenuItem.cs" />
+    <Compile Remove="Pages\Routine\RoutinesDetailBottomNavMaster.xaml.cs" />
+    <Compile Remove="Pages\Routine\RoutinesDetailBottomNavDetail.xaml.cs" />
+    <Compile Remove="Pages\Routine\RoutinesDetailBottomNavDetail.xaml.cs" />
+    <Compile Remove="Pages\Routine\RoutinesDetailBottomNav.xaml.cs" />
+    <Compile Remove="CustomBackButton.cs" />
+    <Compile Remove="Pages\HomeScreen %28copy%29.xaml.cs" />
+    <Compile Remove="Pages\Coach\ClientNote.xaml.cs" />
+    <Compile Remove="PhotoManager.cs" />
+    <Compile Remove="Interface\IPhotoPickerService.cs" />
+    <Compile Remove="Behaviors\Behavior.cs" />
+    <Compile Remove="Pages\Support\SettingsMaster.xaml.cs" />
+    <Compile Remove="Pages\Support\Settings.xaml.cs" />
+    <Compile Remove="Pages\SupportUs\Settings.xaml.cs" />
+    <Compile Remove="Pages\PopUps\InformationMessage %28copy%29.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Pages\Client\ClientNote.xaml.cs">
+      <DependentUpon>ClientNote.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Client\ClientRoutine.xaml.cs">
+      <DependentUpon>ClientRoutine.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Client\RoutineInformationEdit.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Coach\Coach.xaml.cs">
+      <DependentUpon>Coach.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Coach\CoachDetail.xaml.cs">
+      <DependentUpon>CoachDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Routine\RoutinesCoaches.xaml.cs">
+      <DependentUpon>RoutinesCoaches.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Support\Settings.xaml.cs">
+      <DependentUpon>Support.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Pages\AddClient.xaml" />
+    <EmbeddedResource Remove="Pages\ClientDetail.xaml" />
+    <EmbeddedResource Remove="Pages\LogIn.xaml" />
+    <EmbeddedResource Remove="Pages\PickExercise.xaml" />
+    <EmbeddedResource Remove="Pages\RoutineInformationEdit.xaml" />
+    <EmbeddedResource Remove="Pages\RoutineInProgress.xaml" />
+    <EmbeddedResource Remove="Pages\RoutineSummary.xaml" />
+    <EmbeddedResource Remove="Pages\RoutinesDetail.xaml" />
+    <EmbeddedResource Remove="Pages\Routines.xaml" />
+    <EmbeddedResource Remove="Pages\Coach\ClientRoutine.xaml" />
+    <EmbeddedResource Remove="Pages\Clients.xaml" />
+    <EmbeddedResource Remove="Pages\ClientInformation.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\MyPage.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\MyPage.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\RoutineDetailBottomNav.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\RoutinesDetailBottomNavMaster.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\RoutinesDetailBottomNavDetail.xaml" />
+    <EmbeddedResource Remove="Pages\Routine\RoutinesDetailBottomNav.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Pages\About.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Client\AddClient.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\AddExercise\Single.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Client\ClientDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Client\ClientInformation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Client\Clients.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\CreateUser.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\History\Summary.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\HomeScreen.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\MasterNavigation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\NoteInformation.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\AddExercise\PickExercise.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Routine\RoutineInformationEdit.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Routine\Routines.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Routine\RoutineSummary.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Pages\Settings.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Pages\SharedClasses\" />
+    <Folder Include="Pages\SupportUs\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Pages\PopUps\" />
+  </ItemGroup>
+</Project>

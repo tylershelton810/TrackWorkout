@@ -1,0 +1,173 @@
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.iOS.exe
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.iOS.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Acr.UserDialogs.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Acr.UserDialogs.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Auth0.OidcClient.Core.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Auth0.OidcClient.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/BTProgressHUD.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Lottie.iOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Lottie.iOS.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Lottie.Forms.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Lottie.Forms.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ContextMenu.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ContextMenu.iOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ExpandableView.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/FormsCurvedBottomNavigation.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/IdentityModel.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/IdentityModel.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/IdentityModel.OidcClient.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/IdentityModel.OidcClient.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Json.Net.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microcharts.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microcharts.iOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microcharts.Forms.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Configuration.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Configuration.Binder.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Logging.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Options.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Extensions.Primitives.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.Identity.Client.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.IdentityModel.Logging.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.IdentityModel.Protocols.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Microsoft.IdentityModel.Tokens.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/PCLCrypto.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/PInvoke.BCrypt.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/PInvoke.Kernel32.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/PInvoke.NCrypt.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/PInvoke.Windows.Core.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Plugin.Permissions.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Refractored.XamForms.PullToRefresh.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Refractored.XamForms.PullToRefresh.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Rg.Plugins.Popup.IOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Rg.Plugins.Popup.IOS.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Rg.Plugins.Popup.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Rg.Plugins.Popup.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/SkiaSharp.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/SkiaSharp.Views.iOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/SkiaSharp.Views.Forms.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/System.IdentityModel.Tokens.Jwt.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/System.Runtime.CompilerServices.Unsafe.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/System.Security.Cryptography.Cng.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/System.Text.Encodings.Web.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Validation.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Plugin.Media.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Plugin.SimpleAudioPlayer.Abstractions.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Plugin.SimpleAudioPlayer.Abstractions.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Plugin.SimpleAudioPlayer.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ImageCircle.Forms.Plugin.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Auth.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Auth.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Auth.XamarinForms.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Essentials.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Essentials.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Firebase.Auth.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Firebase.Core.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ar/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ca/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/cs/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/da/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/de/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/el/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/es/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/fi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/fr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/he/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/hi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/hr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/hu/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/id/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/it/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ja/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ko/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ms/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/nb/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/nl/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/pl/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/pt-br/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/pt/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ro/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/ru/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/sk/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/sv/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/th/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/tr/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/uk/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/vi/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/zh-HK/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/zh-Hans/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/ibtool/_BundleResourceWithLogicalName.items
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/actool/_PartialAppManifest.items
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/actool/_BundleResourceWithLogicalName.items
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/coremlc/_PartialAppManifest.items
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/coremlc/_BundleResourceWithLogicalName.items
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/PlusSymbol.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/PaintBucket.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Tapemeasure.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Clock.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/PRArrow.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Finish.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Stopwatch.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Support.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/TeeSpringBanner.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Warning.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Question.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/info.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Gradient.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/GradientBlue.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/GradientGreen.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Lock.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Unlock.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Routine.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Client.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Add.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Note.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Coach.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Home.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Whistle.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Cancel.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Trash.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Edit.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Forward.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/LineMenu.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/DotMenu.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Barbell.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Bar45.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Check.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Clipboard.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/FreeAccount.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/PremiumAccount.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Settings.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Dumbbell.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Scale.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/information.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/informationWhite.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Back.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Google.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/CoachMETransparent.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/OpenEye.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/ClosedEye.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/Facebook.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/SendNote.png
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.6/optimized/
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csprojAssemblyReference.cache
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csproj.CoreCompileInputs.cache
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/XamlC.stamp
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csproj.CopyComplete
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.exe
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.pdb

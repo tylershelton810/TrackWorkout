@@ -1,0 +1,13 @@
+﻿
+<?xml version="1.0" encoding="utf-8" ?>
+<controls:BottomNavTabPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:MyProject.App.Views;assembly=MyProjects.App"
+             xmlns:controls="clr-namespace:MyProject.App.Controls;assembly=MyProjects.App"
+             x:Class="MyProject.App.Views.MainTabPage"
+             Title="">
+    <views:NewsFeed></views:NewsFeed>
+    <views:Rewards></views:Rewards>
+    <views:Nominations></views:Nominations>
+    <views:Notifications></views:Notifications>
+</controls:BottomNavTabPage>

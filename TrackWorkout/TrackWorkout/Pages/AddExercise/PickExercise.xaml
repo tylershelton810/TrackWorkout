@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackWorkout.Pages.AddExercise.PickExercise"
+             BackgroundColor="#f5f5f5"             
+             Title="Pick Exercises">
+    <ContentPage.Content>
+
+
+        <StackLayout x:Name="rootLayout" VerticalOptions="FillAndExpand" Spacing="0">
+            <Grid  RowSpacing="0" BackgroundColor="Transparent" HorizontalOptions="Center" Margin="0,0,0,5" VerticalOptions="End" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand" Grid.Column="0" Grid.Row="0">
+                    <StackLayout x:Name="gridStack" >
+                    </StackLayout>
+                </ScrollView>
+               
+            </Grid>
+
+            <Frame Padding="0" HasShadow="True" x:Name="addExercisesFrame">
+                <Button x:Name="addExercises" Clicked="addExercisesClick" Text="Add selected exercises to routine" VerticalOptions="EndAndExpand" HeightRequest="60" TextColor="White"></Button>
+            </Frame>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

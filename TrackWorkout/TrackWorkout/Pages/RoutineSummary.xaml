@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TrackWorkout.CustomRenderer;assembly=TrackWorkout"
+             x:Class="TrackWorkout.Pages.RoutineSummary"
+             BackgroundColor="#f5f5f5">
+    <ContentPage.Content>
+        <StackLayout x:Name="rootLayout" VerticalOptions="FillAndExpand" Spacing="2">
+            <StackLayout VerticalOptions="StartAndExpand" x:Name="HeaderLayout" BackgroundColor="#5bc2dc" Spacing="0">
+                <!--<Grid  x:Name="HeaderGrid" ColumnSpacing="0" BackgroundColor="#5bc2dc">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Star"/>
+                        <ColumnDefinition Width="60"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>-->
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="#f5f5f5" >
+
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand" >
+                    <StackLayout x:Name="gridStack" >
+
+                    </StackLayout>
+
+
+
+                </ScrollView>
+            </StackLayout>
+            <Frame HasShadow="True" Padding="1">
+            <local:EditorXF x:Name="Notes" Placeholder="Routine Notes" VerticalOptions="EndAndExpand" HeightRequest="100" BackgroundColor="White" TextColor="Gray"></local:EditorXF>
+            </Frame>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

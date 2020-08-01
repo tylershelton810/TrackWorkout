@@ -1,0 +1,5 @@
+﻿<Properties StartupConfiguration="{F5858269-9C3B-4050-86FD-64149D37C8E0}|Default">
+  <MonoDevelop.Ide.ItemProperties.TrackWorkout.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
+  <MonoDevelop.Ide.ItemProperties.TrackWorkout.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.B1D2D95C-EF9C-4BCA-BE33-6D8A9E2B4820" />
+  <MultiItemStartupConfigurations />
+</Properties>

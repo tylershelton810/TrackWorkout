@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "577834421371",
+    "firebase_url": "https://coachme-69602.firebaseio.com",
+    "project_id": "coachme",
+    "storage_bucket": "coachme.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:577834421371:android:be3c09e8d9d579329966de",
+        "android_client_info": {
+          "package_name": "com.companyname.TrackWorkout"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "577834421371-1kiub8ohq9p27d1rr4d6mqd1pbo1f27a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.TrackWorkout",
+            "certificate_hash": "804615aad1854efe8042ecc71c821c7ffe749c21"
+          }
+        },
+        {
+          "client_id": "577834421371-e3j8dhndcckeejhkepu7hsm194rep6ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyC4NjgKMaFAsbwUdXCWnmrJ0lhhQylq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "577834421371-e3j8dhndcckeejhkepu7hsm194rep6ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

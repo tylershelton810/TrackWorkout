@@ -1,0 +1,30 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Pages/SupportUs/SupportUs.xaml.cs">
+    <Files>
+      <File FileName="Pages/SupportUs/SupportUs.xaml" Line="5" Column="40" />
+      <File FileName="Pages/SupportUs/SupportUs.xaml.cs" Line="17" Column="35" />
+      <File FileName="Pages/SupportUs/SupportUsMaster.xaml.cs" />
+      <File FileName="Pages/SettingsMaster.xaml" />
+      <File FileName="Pages/SupportUs/SupportUsMaster.xaml" />
+      <File FileName="Pages/SettingsMaster.xaml.cs" />
+      <File FileName="Pages/Settings.xaml" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TrackWorkout" expanded="True">
+            <Node name="TrackWorkout" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../Pages/HomeScreenDetail.xaml.cs" line="152" column="56" endLine="152" endColumn="78" offsetX="-1" offsetY="-1" expression="App.userInformationApp[0].ProfilePicture" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

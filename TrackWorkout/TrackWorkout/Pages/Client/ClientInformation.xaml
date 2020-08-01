@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="TrackWorkout.Pages.Client.ClientInformation"
+             BackgroundColor="White"
+             >
+    <ContentPage.Content>
+        <Grid x:Name="ProfileBanner" VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView x:Name="ProfileBox" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+            <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Transparent"/>
+            <Frame x:Name="ProfileFrame"
+                           CornerRadius="75"
+                           HorizontalOptions="Center"
+                           Padding="1"                           
+                           WidthRequest="150"
+                           HeightRequest="150"
+                           BackgroundColor="#5bc2dc"
+                           HasShadow="False"
+                           VerticalOptions="Center"
+                           Grid.Row="1"
+                           Grid.RowSpan="2">
+                <custom1:CircleImage x:Name="ProfilePicture"/>
+            </Frame>
+             <Label x:Name="ClientEmailLabel" Font="12" TextColor="White" HorizontalOptions="StartAndExpand" Grid.Column="1" Grid.Row="1" VerticalOptions="End" Margin="0,0,10,10"/>
+           <Label x:Name="UserNameLabel" Font="15" TextColor="#393939" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="Start"/>
+            <Label x:Name="GridHeaderLabel" Text="History" FontAttributes="15" Grid.Row="2" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,5" BackgroundColor="Transparent"/>
+
+           
+            <Frame Grid.Row="3"
+                           Grid.Column="1"
+                           HorizontalOptions="End"
+                           HasShadow="False"
+                           Padding="1"
+                           x:Name="ButtonGridFrame">
+                <Grid x:Name="ButtonGrid"                              
+                              Padding="1"
+                              >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <BoxView x:Name="SidePanel1" Grid.RowSpan="5"/>
+                    <BoxView x:Name="SidePanel2" Grid.RowSpan="5"/>
+
+                    <ImageButton x:Name="HistoryButton"
+                                        Clicked="HistoryClick"
+                                         BackgroundColor="White"
+                                        Source="Clock.png"                                                                            
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                         Grid.Row="0"
+                                         />
+                    <ImageButton x:Name="PersonalRecordButton"
+                                        Clicked="PRClick"
+                                          BackgroundColor="White"
+                                        Source="PRArrow.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="1"
+                                          />
+                    <ImageButton x:Name="WeightEntryButton"
+                                        Clicked="WeightEntryClick"
+                                          BackgroundColor="Transparent"
+                                        Source="Scale.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="2"
+                                          />
+                    <ImageButton x:Name="TapeButton"
+                                        Clicked="TapeClick"
+                                          BackgroundColor="Transparent"
+                                        Source="Tapemeasure.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="3"
+                                          />
+                </Grid>
+            </Frame>
+
+            <ScrollView  x:Name="ProfilePicFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="3"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="ProfilePicStack"/>
+            </ScrollView>
+            <ScrollView  x:Name="HistoryFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="3"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="HistoryStack"/>
+            </ScrollView>
+            <ScrollView  x:Name="PRFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="3"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="PRStack"/>
+            </ScrollView>
+            <ScrollView x:Name="WeightChartFrame"
+                        BackgroundColor="#f5f5f5"
+                        Margin="0,0,50,85"
+                        Orientation="Horizontal"
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2">
+                <forms:ChartView x:Name="WeightChart"
+                                 />
+            </ScrollView>
+
+
+            <Grid  RowSpacing="0" Grid.Row="3" Grid.ColumnSpan="2" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+                <ImageButton x:Name="BackButton"
+                             Source="Back.png"
+                             Grid.Column="0"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                              Margin="10,5,0,5"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="BackClick"/>
+                <ImageButton x:Name="Note"
+                             Source="Note.png"
+                             Grid.Column="2"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoNote"/>
+                <Frame Grid.Column="3"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="RoutineFrame"
+                       >
+                    <ImageButton x:Name="Home"
+                                 Source="Client.png"                                 
+                                 CornerRadius="27"
+                                 BackgroundColor="Red"/>
+                </Frame>
+                <ImageButton x:Name="Routine"
+                             Source="Routine.png"
+                             Grid.Column="4"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"                             
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoRoutine"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

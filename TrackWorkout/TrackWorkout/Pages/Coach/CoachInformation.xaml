@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="TrackWorkout.Pages.Coach.CoachInformation"
+             BackgroundColor="#f5f5f5"
+             >
+    <ContentPage.Content>
+        <StackLayout x:Name="rootLayout" VerticalOptions="FillAndExpand" Spacing="0">
+            <StackLayout VerticalOptions="StartAndExpand" x:Name="HeaderLayout" BackgroundColor="Transparent" Spacing="0">
+                <Grid x:Name="ProfileBanner" RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="110"/>
+                        <RowDefinition Height="110"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView x:Name="FillerBox2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+                    
+                    <BoxView x:Name="FillerBox" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+                    <BoxView Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Transparent"/>
+                    <Frame x:Name="ProfileFrame"
+                           CornerRadius="75"
+                           HorizontalOptions="Center"
+                           Padding="1"                           
+                           WidthRequest="150"
+                           HeightRequest="150"
+                           BackgroundColor="#5bc2dc"
+                           HasShadow="False"
+                           VerticalOptions="Center"
+                           Grid.Row="1"
+                           Grid.RowSpan="2">
+                        <custom1:CircleImage x:Name="ProfilePicture"/>
+                    </Frame>
+                    <Label x:Name="CoachEmailLabel" Font="15" TextColor="White" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" VerticalOptions="End"/>
+                    <Label x:Name="UserNameLabel" Font="15" TextColor="#393939" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+                        <Frame Padding="0" HasShadow="False" Margin="15,0,15,0" HeightRequest="200">
+                            <ScrollView  x:Name="HistoryView"   BackgroundColor="#f5f5f5">
+                                <StackLayout x:Name="HistoryStack" >
+                                </StackLayout>
+                            </ScrollView>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="#f5f5f5" >
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand" >
+                    <StackLayout x:Name="gridStack" >
+
+
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+
+            <Grid  RowSpacing="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+                <ImageButton x:Name="BackButton"
+                             Source="Back.png"
+                             Grid.Column="0"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                              Margin="10,5,0,5"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"/>
+                <ImageButton x:Name="Note"
+                             Source="Note.png"
+                             Grid.Column="2"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoNote"/>
+                <Frame Grid.Column="3"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="CoachIconFrame"
+                       >
+                    <ImageButton x:Name="Home"
+                                 Source="Whistle.png"                                 
+                                 CornerRadius="27"
+                                 BackgroundColor="Red"/>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

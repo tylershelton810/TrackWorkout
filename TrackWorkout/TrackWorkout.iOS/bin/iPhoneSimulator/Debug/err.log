@@ -1,0 +1,10 @@
+MonoTouch: Could not install sigaction override, unexpected sigaction implementation.
+2019-12-31 18:56:56.287403-0500 TrackWorkout.iOS[2975:182790] Xamarin.iOS: Socket error while connecting to IDE on 127.0.0.1:53922: Connection refused
+2019-12-31 18:56:56.895519-0500 TrackWorkout.iOS[2975:182720] SecTaskLoadEntitlements failed error=22 cs_flags=200, pid=2975
+2019-12-31 18:56:56.895706-0500 TrackWorkout.iOS[2975:182720] SecTaskCopyDebugDescription: TrackWorkout.iOS[2975]/0#-1 LF=0
+2019-12-31 18:56:56.901711-0500 TrackWorkout.iOS[2975:182720] SecTaskLoadEntitlements failed error=22 cs_flags=200, pid=2975
+2019-12-31 18:56:56.901866-0500 TrackWorkout.iOS[2975:182720] SecTaskCopyDebugDescription: TrackWorkout.iOS[2975]/0#-1 LF=0
+2019-12-31 18:56:57.042220-0500 TrackWorkout.iOS[2975:182720] [plugin] AddInstanceForFactory: No factory registered for id <CFUUID 0x6000011cf660> F8BB1C28-BAE8-11D6-9C31-00039315CD46
+2019-12-31 18:56:57.139588-0500 TrackWorkout.iOS[2975:182800] SecTaskLoadEntitlements failed error=22 cs_flags=200, pid=2975
+2019-12-31 18:56:57.139808-0500 TrackWorkout.iOS[2975:182800] SecTaskCopyDebugDescription: TrackWorkout.iOS[2975]/0#-1 LF=0
+2019-12-31 18:56:57.388306-0500 TrackWorkout.iOS[2975:182804] [unspecified] container_system_group_path_for_identifier: error = (container_error_t)53

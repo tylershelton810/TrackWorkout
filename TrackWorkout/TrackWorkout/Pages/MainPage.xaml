@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrackWorkout.Pages.MainPage"
+             BackgroundColor="#5bc2dc">
+
+    <ContentPage.Content>
+        <Grid x:Name="PageGrid"
+              Margin="0,0,0,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+            <Image Source="CoachMETransparent.png"
+                   HorizontalOptions="Center"
+                       Margin="0,120,0,10"
+                       VerticalOptions="Start"
+                       HeightRequest="325"
+                       Grid.Row="0"
+                />
+            <Button Text="Login"
+                    Grid.Row="1"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    Clicked="LoginButtonClick"
+                    BackgroundColor="White"
+                    IsVisible="False"
+                    x:Name="LoginButton"
+                    Margin="40,0,40,0"
+                />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

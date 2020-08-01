@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom1="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:expandable="clr-namespace:Expandable;assembly=ExpandableView" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" xmlns:customrenderer="clr-namespace:TrackWorkout.CustomRenderer"
+             x:Class="TrackWorkout.HomeScreenDetail"
+             Title="CoachME"
+             BackgroundColor="White">
+
+    <ContentPage.Content>
+        <Grid x:Name="ProfileBanner" VerticalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView x:Name="FillerBox" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="#5bc2dc"/>
+            <BoxView Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BackgroundColor="Transparent"/>
+            <Frame x:Name="ProfileFrame"
+                           CornerRadius="75"
+                           HorizontalOptions="Center"
+                           Padding="1"                           
+                           WidthRequest="150"
+                           HeightRequest="150"
+                           BackgroundColor="#5bc2dc"
+                           HasShadow="False"
+                           VerticalOptions="Center"
+                           Grid.Row="0"
+                           Grid.RowSpan="2">
+                <custom1:CircleImage x:Name="ProfilePicture">
+                    <!--<custom1:CircleImage.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="changeProfilePicture"/>
+                    </custom1:CircleImage.GestureRecognizers>-->
+                </custom1:CircleImage>
+                <!--<Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="changeProfilePicture"/>
+                </Frame.GestureRecognizers>-->
+            </Frame>
+            <Label x:Name="Email" Font="12" TextColor="White" HorizontalOptions="StartAndExpand" Grid.Column="1" Grid.Row="0" VerticalOptions="End" Margin="0,0,10,10"/>
+            <Button Clicked="LogoutClick" Grid.Row="0" Grid.Column="1" Margin="0,0,10,0" HorizontalOptions="End" VerticalOptions="Start" Text="Logout" BackgroundColor="Transparent" FontSize="Small" TextColor="White" x:Name="LogoutButton"/>
+            <ImageButton x:Name="MembershipBadge" BackgroundColor="Transparent" HeightRequest="40" Margin="0,0,10,0" VerticalOptions="Start" HorizontalOptions="End" Clicked="MembershipBadgeClick" Grid.Column="1" Grid.Row="1"/>
+            <Label x:Name="UserNameLabel" Font="15" TextColor="#393939" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Start"/>
+            <Label x:Name="GridHeaderLabel" Text="History" FontAttributes="15" Grid.Row="1" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" Margin="0,0,0,5" BackgroundColor="Transparent"/>
+
+            <Frame Grid.Row="2"
+                           Grid.Column="1"
+                           HorizontalOptions="End"
+                           HasShadow="False"
+                           Padding="1"
+                           x:Name="ButtonGridFrame">
+                <Grid x:Name="ButtonGrid"                              
+                              Padding="1"
+                              >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+
+                    <BoxView x:Name="SidePanel1" Grid.RowSpan="5"/>
+                    <BoxView x:Name="SidePanel2" Grid.RowSpan="5"/>
+
+                    <ImageButton x:Name="HistoryButton"
+                                        Clicked="HistoryClick"
+                                         BackgroundColor="White"
+                                        Source="Clock.png"                                                                            
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                         Grid.Row="0"
+                                         />
+                    <ImageButton x:Name="PersonalRecordButton"
+                                        Clicked="PRClick"
+                                          BackgroundColor="White"
+                                        Source="PRArrow.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="1"
+                                          />
+                    <ImageButton x:Name="WeightEntryButton"
+                                        Clicked="WeightEntryClick"
+                                          BackgroundColor="Transparent"
+                                        Source="Scale.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="2"
+                                          />
+                    <ImageButton x:Name="TapeButton"
+                                        Clicked="TapeClick"
+                                          BackgroundColor="Transparent"
+                                        Source="Tapemeasure.png"
+                                        HorizontalOptions="End"                                       
+                                        HeightRequest="40"
+                                         CornerRadius="20"
+                                        WidthRequest="40"
+                                          Grid.Row="3"
+                                          />
+                </Grid>
+            </Frame>
+
+            <ScrollView  x:Name="ProfilePicFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="2"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="ProfilePicStack"/>
+            </ScrollView>
+            <ScrollView  x:Name="HistoryFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="2"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="HistoryStack"/>
+            </ScrollView>
+            <ScrollView  x:Name="PRFrame"
+                                         BackgroundColor="#f5f5f5"
+                                         Margin="0,0,50,0"
+                                         Grid.Row="2"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="2">
+                <StackLayout x:Name="PRStack"/>
+            </ScrollView>
+            <ScrollView x:Name="WeightChartFrame"
+                        BackgroundColor="#f5f5f5"
+                        Margin="0,0,50,85"
+                        Orientation="Horizontal"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2">
+                <forms:ChartView x:Name="WeightChart"
+                                 />
+            </ScrollView>
+            <customrenderer:MyEntry Placeholder="Enter Weight"
+                                    x:Name="NewWeightEntry"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="2"
+                                    Keyboard="Numeric"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="End"
+                                    HeightRequest="50"
+                                    Margin="0,0,0,25"/>
+
+            <ContentView x:Name="MembershipPopup" Grid.RowSpan="3" Grid.ColumnSpan="2" BackgroundColor="#C0808080" Padding="10, 0" IsVisible="false" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+                <Frame CornerRadius="5" HasShadow="True" VerticalOptions="Center" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" BackgroundColor="Transparent" >
+                        <Label TextColor="#393939" FontSize="30"  Margin="0,10,0,0" x:Name="MembershipPopupLabel" HorizontalOptions="Center"/>
+                        <Grid HeightRequest="150" Margin="0,90,0,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Button x:Name="MoreInfoButton" Text="More Info" HorizontalOptions="Fill"  BackgroundColor="#5bc2dc" TextColor="White" Grid.Column="0" CornerRadius="5" />
+                            <Button Clicked="CloseMembershipPopup" CornerRadius="5" BackgroundColor="#5bdcb6" TextColor="White" Grid.Column="1" HorizontalOptions="Fill" x:Name="OKMembershipButton"/>
+                        </Grid>
+                    </StackLayout>
+                </Frame>
+                <ContentView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="dismissPopUp"/>
+                </ContentView.GestureRecognizers>
+            </ContentView>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

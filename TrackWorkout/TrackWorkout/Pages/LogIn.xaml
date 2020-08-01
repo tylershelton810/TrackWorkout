@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.LogIn"
+             BackgroundColor="#5bc2dc">
+    <ContentPage.Content>
+        <StackLayout Margin="0,35,0,20" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+
+            <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="FillAndExpand">
+                <!--<ActivityIndicator x:Name="LoadingProfileIcon" IsRunning= "False" IsEnabled="False" IsVisible="False"  Color="White"/>-->
+
+                <forms:AnimationView x:Name="LoadingProfileIcon"
+                             WidthRequest="200"
+                             HeightRequest="200"
+                             Animation="Loading5.json"
+                             Loop="True"
+                             AutoPlay="True"
+                             IsVisible="False"/>
+            </AbsoluteLayout>
+
+            <Frame Margin="25,0,25,10"
+                   HasShadow="True"
+                   CornerRadius="10">
+                <Grid  x:Name="PasswordGrid" RowSpacing="2" ColumnSpacing="0" BackgroundColor="Transparent" VerticalOptions="End">
+                   <Grid.ColumnDefinitions>
+                       <ColumnDefinition Width="*"/>
+                       <ColumnDefinition Width="50"/>
+                   </Grid.ColumnDefinitions>
+                   <Grid.RowDefinitions>
+                       <RowDefinition Height="50" />
+                       <RowDefinition Height="50" />
+                   </Grid.RowDefinitions>
+                <Entry x:Name="logInEmail" 
+                       Placeholder="(Please enter your Email Address)" 
+                       MaxLength="100" PlaceholderColor="Black" 
+                       TextColor="Black" 
+                       Grid.Row="0"    
+                       Grid.Column="0"  
+                       Grid.ColumnSpan="2"
+                       HorizontalTextAlignment="Start"/>
+                <Entry x:Name="Password" 
+                           Placeholder="Password"
+                           Grid.Column="0" 
+                           Grid.Row="1"
+                           MaxLength="100" 
+                           PlaceholderColor="Black" 
+                           TextColor="Black" 
+                           HorizontalTextAlignment="Start" 
+                           IsPassword="True"/>
+                <ImageButton x:Name="ShowPassword" 
+                                 Clicked="ShowPasswordClick" 
+                                 Source="ClosedEye.png" 
+                                 BackgroundColor="Transparent" 
+                                 CornerRadius="45" 
+                                 HeightRequest="50" 
+                                 WidthRequest="50"
+                                 Grid.Column="1"
+                                 Grid.Row="1"/>
+                </Grid>
+            </Frame>
+
+
+
+            <Button 
+            Clicked="LoginButtonClicked" 
+                x:Name="LoginButton"
+            Text="Login" TextColor="White" FontAttributes="Bold" FontSize="Large"
+            BackgroundColor="#393939"           
+            HeightRequest="75"
+                Margin="25,0,25,0"
+            CornerRadius="10"
+            />
+
+            
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

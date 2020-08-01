@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:customrenderer="clr-namespace:TrackWorkout.CustomRenderer" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.Settings"
+             BackgroundColor = "White">
+    <ContentPage.Content>
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <!--Header Row-->
+                <RowDefinition Height="*" />
+                <!--Body-->
+            </Grid.RowDefinitions>
+
+
+            <StackLayout x:Name="MainStack" VerticalOptions="FillAndExpand" BackgroundColor="White" Grid.Row="0" Spacing="0">
+
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand">
+                    <StackLayout x:Name="gridStack" >
+                        <Frame HasShadow="False" Padding="0">
+                            <Grid RowSpacing="0" x:Name="WeightType"  ColumnSpacing="0" BackgroundColor="Transparent" HeightRequest="60">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width ="Auto" />
+                                    <ColumnDefinition Width ="*" />
+                                    <ColumnDefinition Width ="Auto" />
+                                    <ColumnDefinition Width ="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Dumbbell.png" Margin="15,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+                                <Label Text="Conversion" 
+                               x:Name="WeightTypeLabel"
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               HeightRequest="20" 
+                               Margin="10,0,10,0" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"
+                               TextColor="#5bc2dc"
+                               Grid.Column="1">
+                                </Label>
+
+                                <Frame HasShadow="False" BorderColor="DarkGray" Grid.Column="2" CornerRadius="25" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White" Margin="10,0,10,0" Padding="1">
+                                    <Button x:Name="LbsButton" Clicked="LbsButtonClicked" FontSize="Small" CornerRadius="25" Text="Lbs" HeightRequest="50" WidthRequest="50" TextColor="White"/>
+                                </Frame>
+                                <Frame HasShadow="False" BorderColor="DarkGray" Grid.Column="3" CornerRadius="25" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White" Margin="10,0,20,0" Padding="1">
+                                    <Button x:Name="KgsButton" Clicked="KgsButtonClicked" FontSize="Small" CornerRadius="25" Text="Kgs" HeightRequest="50" WidthRequest="50" TextColor="White"/>
+                                </Frame>
+
+
+                            </Grid>
+                        </Frame>
+
+                        <Frame HasShadow="False" Padding="0">
+                            <Grid RowSpacing="0" x:Name="ThemeColorGridPrimary"  ColumnSpacing="0" BackgroundColor="Transparent" HeightRequest="120">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width ="Auto" />
+                                    <ColumnDefinition Width ="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="PaintBucket.png" Margin="15,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+                                <Label Text="Primary Color" 
+                               x:Name="ThemeColorLabel"
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               HeightRequest="20" 
+                               Margin="10,0,10,0" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"
+                               TextColor="#5bc2dc"
+                               Grid.Column="1">
+                                </Label>
+                                <ScrollView Orientation="Horizontal"
+                                        Grid.Column="1"
+                                        Grid.Row="1"
+                                        WidthRequest="150">
+                                    <Grid ColumnSpacing="10" x:Name="PrimaryColorWheelGrid">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                        </Grid.ColumnDefinitions>
+
+                                    </Grid>
+                                </ScrollView>
+                            </Grid>
+                        </Frame>
+
+                        <Frame HasShadow="False" Padding="0">
+                            <Grid RowSpacing="0" x:Name="ThemeColorGridSecondary"  ColumnSpacing="0" BackgroundColor="Transparent" HeightRequest="120">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width ="Auto" />
+                                    <ColumnDefinition Width ="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"/>
+                                    <RowDefinition Height="60"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="PaintBucket.png" Margin="15,0,0,0" Grid.Column="0" HorizontalOptions="Start"/>
+                                <Label Text="Secondary Color" 
+                               x:Name="ThemeColorLabelSecondary"
+                               FontSize="15" 
+                               FontAttributes="Bold" 
+                               HeightRequest="20" 
+                               Margin="10,0,10,0" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Center"
+                               TextColor="#5bc2dc"
+                               Grid.Column="1">
+                                </Label>
+                                <ScrollView Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
+                                    <Grid  ColumnSpacing="10" x:Name="SecondaryColorWheelGrid">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                            <ColumnDefinition Width="60"/>
+                                        </Grid.ColumnDefinitions>
+
+                                    </Grid>
+                                </ScrollView>
+                            </Grid>
+                        </Frame>
+
+                    </StackLayout>
+
+
+                </ScrollView>
+
+            </StackLayout>
+
+            <Grid  RowSpacing="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+
+                <Frame Grid.Column="2"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                                     WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="SaveFrame"
+                       >
+                    <ImageButton x:Name="SaveButton"
+                                 Source="Finish.png"
+                                     CornerRadius="27"
+                                     Clicked="SaveClicked"
+                                 BackgroundColor="#5bdcb6"/>
+                </Frame>
+            </Grid>
+
+            <forms:AnimationView x:Name="DoneAnimation"
+                                 OnFinish="AnimationComplete"
+                             WidthRequest="200"
+                             HeightRequest="200"
+                             Animation="Done.json"
+                             IsVisible="False"
+                                      Grid.Row="0"
+                                     HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

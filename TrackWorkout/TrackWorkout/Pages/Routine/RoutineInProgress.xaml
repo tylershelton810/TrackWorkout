@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             x:Class="TrackWorkout.Pages.Routine.RoutineInProgress"
+             BackgroundColor="#f5f5f5"
+             >
+    <ContentPage.Content>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="#f5f5f5" Grid.Row="0" >
+                <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand">
+                    <StackLayout x:Name="gridStack" >
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <Grid x:Name="BarbellGrid" Grid.Row="0" BackgroundColor="#393939" VerticalOptions="Center"  HorizontalOptions="Fill" Margin="0,0,15,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <!--<RowDefinition Height="200" />-->
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+
+                <!--BlueViolet 45
+                Coral 35
+                OrangeRed 25
+                Firebrick 10
+                LightGreen 5
+                LightBlue 2.5-->
+                <Label HorizontalOptions="Start" VerticalOptions="End" Text="Plate #" TextColor="White" FontSize="Small" Grid.Row="0" Grid.Column="0" Margin="10,0,0,0"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="45" TextColor="White" FontSize="Small"  Rotation="315" Grid.Row="0" Grid.Column="1"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="35" TextColor="White" FontSize="Small"  Rotation="315" Grid.Row="0" Grid.Column="2"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="25" TextColor="White" FontSize="Small"  Rotation="315" Grid.Row="0" Grid.Column="3"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="10" TextColor="White" FontSize="Small"  Rotation="315" Grid.Row="0" Grid.Column="4"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="5" TextColor="White" FontSize="Small"   Rotation="315" Grid.Row="0" Grid.Column="5"/>
+                <Label HorizontalOptions="Center" VerticalOptions="End" Text="2.5" TextColor="White" FontSize="Small" Rotation="315" Grid.Row="0" Grid.Column="6"/>
+                <Picker x:Name="number45Count" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="0" TextColor="White" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>45: *</x:String>
+                        <x:String>45: 2</x:String>
+                        <x:String>45: 4</x:String>
+                        <x:String>45: 6</x:String>
+                        <x:String>45: 8</x:String>
+                        <x:String>45: 10</x:String>
+                        <x:String>45: 12</x:String>
+                        <x:String>45: 14</x:String>
+                        <x:String>45: 16</x:String>
+                        <x:String>45: 18</x:String>
+                        <x:String>45: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="number35Count" Grid.Row="2" BackgroundColor="Transparent" Grid.Column="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>35: *</x:String>
+                        <x:String>35: 2</x:String>
+                        <x:String>35: 4</x:String>
+                        <x:String>35: 6</x:String>
+                        <x:String>35: 8</x:String>
+                        <x:String>35: 10</x:String>
+                        <x:String>35: 12</x:String>
+                        <x:String>35: 14</x:String>
+                        <x:String>35: 16</x:String>
+                        <x:String>35: 18</x:String>
+                        <x:String>35: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="number25Count" Grid.Row="3" BackgroundColor="Transparent" Grid.Column="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>25: *</x:String>
+                        <x:String>25: 2</x:String>
+                        <x:String>25: 4</x:String>
+                        <x:String>25: 6</x:String>
+                        <x:String>25: 8</x:String>
+                        <x:String>25: 10</x:String>
+                        <x:String>25: 12</x:String>
+                        <x:String>25: 14</x:String>
+                        <x:String>25: 16</x:String>
+                        <x:String>25: 18</x:String>
+                        <x:String>25: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="number10Count" Grid.Row="4" BackgroundColor="Transparent" Grid.Column="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>10: *</x:String>
+                        <x:String>10: 2</x:String>
+                        <x:String>10: 4</x:String>
+                        <x:String>10: 6</x:String>
+                        <x:String>10: 8</x:String>
+                        <x:String>10: 10</x:String>
+                        <x:String>10: 12</x:String>
+                        <x:String>10: 14</x:String>
+                        <x:String>10: 16</x:String>
+                        <x:String>10: 18</x:String>
+                        <x:String>10: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="number5Count" Grid.Row="5" BackgroundColor="Transparent" Grid.Column="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>5: *</x:String>
+                        <x:String>5: 2</x:String>
+                        <x:String>5: 4</x:String>
+                        <x:String>5: 6</x:String>
+                        <x:String>5: 8</x:String>
+                        <x:String>5: 10</x:String>
+                        <x:String>5: 12</x:String>
+                        <x:String>5: 14</x:String>
+                        <x:String>5: 16</x:String>
+                        <x:String>5: 18</x:String>
+                        <x:String>5: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Picker x:Name="number2Point5Count" Grid.Row="6" BackgroundColor="Transparent" Grid.Column="0" TextColor="White" VerticalOptions="End" HorizontalOptions="Fill" Margin="5,0,0,0">
+                    <Picker.Items>
+                        <x:String>2.5: *</x:String>
+                        <x:String>2.5: 2</x:String>
+                        <x:String>2.5: 4</x:String>
+                        <x:String>2.5: 6</x:String>
+                        <x:String>2.5: 8</x:String>
+                        <x:String>2.5: 10</x:String>
+                        <x:String>2.5: 12</x:String>
+                        <x:String>2.5: 14</x:String>
+                        <x:String>2.5: 16</x:String>
+                        <x:String>2.5: 18</x:String>
+                        <x:String>2.5: 20</x:String>
+                    </Picker.Items>
+                </Picker>
+
+                <Frame BackgroundColor="BlueViolet" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" BorderColor="White"/>
+                <Frame BackgroundColor="Coral"      Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" BorderColor="White" Margin="1,10,1,10"/>
+                <Frame BackgroundColor="OrangeRed"  Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" BorderColor="White" Margin="2,30,2,30"/>
+                <Frame BackgroundColor="Firebrick"  Grid.Row="1" Grid.Column="4" Grid.RowSpan="5" BorderColor="White" Margin="4,50,4,50"/>
+                <Frame BackgroundColor="LightGreen" Grid.Row="1" Grid.Column="5" Grid.RowSpan="5" BorderColor="White" Margin="5,60,5,60"/>
+                <Frame BackgroundColor="LightBlue"  Grid.Row="1" Grid.Column="6" Grid.RowSpan="5" BorderColor="White" Margin="6,70,6,70"/>
+
+                <Label Text="Chosen Weight: " TextColor="White" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="6" Margin="0,0,0,17" HorizontalOptions="End" VerticalOptions="End"/>
+                <Picker x:Name="WeightDropDown" BackgroundColor="Transparent" Grid.Row="7" Grid.Column="6" TextColor="White" WidthRequest="60" HorizontalOptions="Start"  Grid.ColumnSpan="7">
+                    <Picker.Items>
+                        <x:String>45</x:String>
+                        <x:String>50</x:String>
+                        <x:String>55</x:String>
+                        <x:String>60</x:String>
+                        <x:String>65</x:String>
+                        <x:String>70</x:String>
+                        <x:String>75</x:String>
+                        <x:String>80</x:String>
+                        <x:String>85</x:String>
+                        <x:String>90</x:String>
+                        <x:String>95</x:String>
+                        <x:String>100</x:String>
+                        <x:String>105</x:String>
+                        <x:String>110</x:String>
+                        <x:String>115</x:String>
+                        <x:String>120</x:String>
+                        <x:String>125</x:String>
+                        <x:String>130</x:String>
+                        <x:String>135</x:String>
+                        <x:String>140</x:String>
+                        <x:String>145</x:String>
+                        <x:String>150</x:String>
+                        <x:String>155</x:String>
+                        <x:String>160</x:String>
+                        <x:String>165</x:String>
+                        <x:String>170</x:String>
+                        <x:String>175</x:String>
+                        <x:String>180</x:String>
+                        <x:String>185</x:String>
+                        <x:String>190</x:String>
+                        <x:String>195</x:String>
+                        <x:String>200</x:String>
+                        <x:String>205</x:String>
+                        <x:String>210</x:String>
+                        <x:String>215</x:String>
+                        <x:String>220</x:String>
+                        <x:String>225</x:String>
+                        <x:String>230</x:String>
+                        <x:String>235</x:String>
+                        <x:String>240</x:String>
+                        <x:String>245</x:String>
+                        <x:String>250</x:String>
+                        <x:String>255</x:String>
+                        <x:String>260</x:String>
+                        <x:String>265</x:String>
+                        <x:String>270</x:String>
+                        <x:String>275</x:String>
+                        <x:String>280</x:String>
+                        <x:String>285</x:String>
+                        <x:String>290</x:String>
+                        <x:String>295</x:String>
+                        <x:String>300</x:String>
+                        <x:String>305</x:String>
+                        <x:String>310</x:String>
+                        <x:String>315</x:String>
+                        <x:String>320</x:String>
+                        <x:String>325</x:String>
+                        <x:String>330</x:String>
+                        <x:String>335</x:String>
+                        <x:String>340</x:String>
+                        <x:String>345</x:String>
+                        <x:String>350</x:String>
+                        <x:String>355</x:String>
+                        <x:String>360</x:String>
+                        <x:String>365</x:String>
+                        <x:String>370</x:String>
+                        <x:String>375</x:String>
+                        <x:String>380</x:String>
+                        <x:String>385</x:String>
+                        <x:String>390</x:String>
+                        <x:String>395</x:String>
+                        <x:String>400</x:String>
+                        <x:String>405</x:String>
+                        <x:String>410</x:String>
+                        <x:String>415</x:String>
+                        <x:String>420</x:String>
+                        <x:String>425</x:String>
+                        <x:String>430</x:String>
+                        <x:String>435</x:String>
+                        <x:String>440</x:String>
+                        <x:String>445</x:String>
+                        <x:String>450</x:String>
+                        <x:String>455</x:String>
+                        <x:String>460</x:String>
+                        <x:String>465</x:String>
+                        <x:String>470</x:String>
+                        <x:String>475</x:String>
+                        <x:String>480</x:String>
+                        <x:String>485</x:String>
+                        <x:String>490</x:String>
+                        <x:String>495</x:String>
+                        <x:String>500</x:String>
+                        <x:String>505</x:String>
+                        <x:String>510</x:String>
+                        <x:String>515</x:String>
+                        <x:String>520</x:String>
+                        <x:String>525</x:String>
+                        <x:String>530</x:String>
+                        <x:String>535</x:String>
+                        <x:String>540</x:String>
+                        <x:String>545</x:String>
+                        <x:String>550</x:String>
+                        <x:String>555</x:String>
+                        <x:String>560</x:String>
+                        <x:String>565</x:String>
+                        <x:String>570</x:String>
+                        <x:String>575</x:String>
+                        <x:String>580</x:String>
+                        <x:String>585</x:String>
+                        <x:String>590</x:String>
+                        <x:String>595</x:String>
+                        <x:String>600</x:String>
+                        <x:String>605</x:String>
+                        <x:String>610</x:String>
+                        <x:String>615</x:String>
+                        <x:String>620</x:String>
+                        <x:String>625</x:String>
+                        <x:String>630</x:String>
+                        <x:String>635</x:String>
+                        <x:String>640</x:String>
+                        <x:String>645</x:String>
+                        <x:String>650</x:String>
+                        <x:String>655</x:String>
+                        <x:String>660</x:String>
+                        <x:String>665</x:String>
+                        <x:String>670</x:String>
+                        <x:String>675</x:String>
+                        <x:String>680</x:String>
+                        <x:String>685</x:String>
+                        <x:String>690</x:String>
+                        <x:String>695</x:String>
+                        <x:String>700</x:String>
+                        <x:String>705</x:String>
+                        <x:String>710</x:String>
+                        <x:String>715</x:String>
+                        <x:String>720</x:String>
+                        <x:String>725</x:String>
+                        <x:String>730</x:String>
+                        <x:String>735</x:String>
+                        <x:String>740</x:String>
+                        <x:String>745</x:String>
+                        <x:String>750</x:String>
+                        <x:String>755</x:String>
+                        <x:String>760</x:String>
+                        <x:String>765</x:String>
+                        <x:String>770</x:String>
+                        <x:String>775</x:String>
+                        <x:String>780</x:String>
+                        <x:String>785</x:String>
+                        <x:String>790</x:String>
+                        <x:String>795</x:String>
+                        <x:String>800</x:String>
+                        <x:String>805</x:String>
+                        <x:String>810</x:String>
+                        <x:String>815</x:String>
+                        <x:String>820</x:String>
+                        <x:String>825</x:String>
+                        <x:String>830</x:String>
+                        <x:String>835</x:String>
+                        <x:String>840</x:String>
+                        <x:String>845</x:String>
+                        <x:String>850</x:String>
+                        <x:String>855</x:String>
+                        <x:String>860</x:String>
+                        <x:String>865</x:String>
+                        <x:String>870</x:String>
+                        <x:String>875</x:String>
+                        <x:String>880</x:String>
+                        <x:String>885</x:String>
+                        <x:String>890</x:String>
+                        <x:String>895</x:String>
+                        <x:String>900</x:String>
+                        <x:String>905</x:String>
+                        <x:String>910</x:String>
+                        <x:String>915</x:String>
+                        <x:String>920</x:String>
+                        <x:String>925</x:String>
+                        <x:String>930</x:String>
+                        <x:String>935</x:String>
+                        <x:String>940</x:String>
+                        <x:String>945</x:String>
+                        <x:String>950</x:String>
+                        <x:String>955</x:String>
+                        <x:String>960</x:String>
+                        <x:String>965</x:String>
+                        <x:String>970</x:String>
+                        <x:String>975</x:String>
+                        <x:String>980</x:String>
+                        <x:String>985</x:String>
+                        <x:String>990</x:String>
+                        <x:String>995</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+            <Grid  RowSpacing="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+                <ImageButton x:Name="BarbellButton"
+                             Source="Barbell.png"
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="OpenBarbellGuide"/>
+
+                <Frame Grid.Column="2"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="addButtonFrame"
+                       >
+                    <Frame HasShadow="False"
+                           CornerRadius="27"
+                           x:Name="addButtonFrame2"
+                           >
+                        <ImageButton x:Name="AddExerciseButtonButtonAction"
+                                 Source="PlusSymbol.png"
+                                     Clicked="PressAddExercise"
+                                 BackgroundColor="#5bdcb6"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddFrameClick"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Frame>
+                <ImageButton x:Name="FinishButtonNew"
+                             Source="Finish.png"
+                             Grid.Column="3"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="FinishClick"/>
+                <ImageButton x:Name="TimerForward" Source="Stopwatch.png" WidthRequest="30"  Margin="15,5,0,5"
+                             Grid.Column="0"
+                             Grid.Row="1"
+                             IsVisible="False"
+                             BackgroundColor="Transparent"
+                             Clicked="TimerForwardPress"
+                             HorizontalOptions="Start"/>
+                <Label x:Name="HeaderLabel"
+                       FontSize="10"
+                       FontAttributes="Bold"
+                       Margin="0,0,15,0"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Start"
+                       TextColor="White"
+                       Grid.Column="4"
+                       Grid.Row="1"/>
+            </Grid>
+            <Grid x:Name="TimerGrid" Grid.Row="0" BackgroundColor="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="36"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <forms:ChartView x:Name="TimerChart" Grid.Row="0"/>
+                <BoxView x:Name="TimerGridThemeColor" Grid.Row="1" Grid.RowSpan="2"/>
+                <ImageButton x:Name="TimerBackButton" Source="Routine.png" WidthRequest="30"  Margin="15,5,0,0"
+                             BackgroundColor="Transparent" Grid.Row="1"
+                             Clicked="TimerBackButtonPress"
+                             HorizontalOptions="Start"/>
+            </Grid>
+            <Grid x:Name="RestClock" Grid.Row="0" Margin="0,0,0,61" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="35"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="35"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

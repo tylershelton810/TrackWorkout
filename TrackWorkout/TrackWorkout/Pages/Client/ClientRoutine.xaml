@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="TrackWorkout.Pages.Client.ClientRoutine"
+             BackgroundColor="#f5f5f5"
+             >
+    <ContentPage.Content>
+        <Grid  Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <!--Body-->
+            </Grid.RowDefinitions>
+            <StackLayout VerticalOptions="FillAndExpand" BackgroundColor="#f5f5f5" Grid.Row="0">
+                <Grid VerticalOptions="FillAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name="NoClientLabel"
+                               Grid.Row="0"
+                               HorizontalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                                   VerticalOptions="Center"
+                               Text="Click + button to add a routine for this client"></Label>
+                    <forms:AnimationView x:Name="NoClientAnimation"
+                             WidthRequest="200"
+                             HeightRequest="400"
+                             Animation="DownArrow.json"
+                             Rotation="23"
+                             AutoPlay="True"
+                             Grid.Row="1"
+                             HorizontalOptions="Center"
+                             Margin="0,0,0,40"
+                             VerticalOptions="End"/>                   
+                        <ScrollView x:Name="myScroll" VerticalOptions="StartAndExpand">
+                            <StackLayout x:Name="gridStack" >
+                            </StackLayout>
+                        </ScrollView>
+                </Grid>
+            </StackLayout>
+
+
+            <Grid  RowSpacing="0" Grid.Row="0" ColumnSpacing="20" BackgroundColor="Transparent" HorizontalOptions="Fill" VerticalOptions="End">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <BoxView x:Name="ButtonGridBottom" Grid.ColumnSpan="7" Grid.Row="1" Grid.RowSpan="3" BackgroundColor="Red"/>
+                <ImageButton x:Name="BackButton"
+                             Source="Back.png"
+                             Grid.Column="0"
+                             Grid.Row="1"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                              Margin="10,5,0,5"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                                  />
+                <Frame Grid.Column="3"
+                       HasShadow="False"
+                       VerticalOptions="End"
+                       HorizontalOptions="Center"
+                       HeightRequest="60"
+                                     WidthRequest="60"
+                       Grid.RowSpan="2"
+                       CornerRadius="30"
+                       Padding="3"
+                       x:Name="RoutineFrame"
+                       >
+                    <Frame HasShadow="False"
+                           CornerRadius="27"
+                           x:Name="RoutineFrame2"
+                           >
+                        <ImageButton x:Name="Routine"
+                                 Source="PlusSymbol.png"
+                                     Clicked="AddRoutine"
+                                 BackgroundColor="#5bdcb6"/>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="AddRoutine"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </Frame>
+                <ImageButton x:Name="Home"
+                             Source="Client.png"
+                             Grid.Column="2"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"                             
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoHome"/>
+                <ImageButton x:Name="Note"
+                             Source="Note.png"
+                             Grid.Column="4"
+                             Grid.RowSpan="2"
+                             WidthRequest="40"                             
+                             HeightRequest="40"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="End"
+                             HorizontalOptions="Center"
+                             Clicked="GoNote"/>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
