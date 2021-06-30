@@ -731,7 +731,7 @@ namespace TrackWorkout.Pages.Client
         {
             //Handle popup page 
             Application.Current.ModalPopping += HandleModalPopping;
-            myPage = new AddExercise.Single(App.exerciseListApp);
+            myPage = new AddExercise.Single(App.exerciseListApp, "Add To Routine");
 
             await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
         }

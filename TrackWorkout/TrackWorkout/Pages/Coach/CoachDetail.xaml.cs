@@ -12,7 +12,6 @@ namespace TrackWorkout.Pages.Coach
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoachDetail : ContentPage
     {
-        List<CoachList> listCoaches;
 
         public CoachDetail()
         {
@@ -30,7 +29,7 @@ namespace TrackWorkout.Pages.Coach
 
         }
 
-        private async void WhileRefreshing(object sender, EventArgs e)
+        private void WhileRefreshing(object sender, EventArgs e) //async?
         {
             RefreshClientData();
         }

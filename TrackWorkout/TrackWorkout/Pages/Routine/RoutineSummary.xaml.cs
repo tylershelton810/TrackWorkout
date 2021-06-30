@@ -85,7 +85,7 @@ namespace TrackWorkout.Pages.Routine
                 soundOne.Play();
             }
         }
-        private async void FinishClick(object sender, EventArgs e)
+        private void FinishClick(object sender, EventArgs e) // async?
         {
             FinishRoutine(OldOnBack);
         }

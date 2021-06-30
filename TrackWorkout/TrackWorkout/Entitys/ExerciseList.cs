@@ -18,6 +18,7 @@ namespace TrackWorkout.Entitys
         //public int setID { get; set; }
         //public int addedID { get; set; }
         public int ExerciseID { get; set; }
+        public int SupersetID { get; set; }
         public char FirstLetter { get; set; }
         public string ExerciseDescription { get; set; }
         public int FirstMuscleCode { get; set; }

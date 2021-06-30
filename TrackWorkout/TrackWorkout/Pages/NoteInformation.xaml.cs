@@ -337,7 +337,7 @@ namespace TrackWorkout.Pages
             if (Response == "success")
             {
                 RefreshingLayout.IsRefreshing = false;
-                Navigation.InsertPageBefore(new NoteInformation(NoteObject, PassedBy), this); Navigation.PopAsync();
+                Navigation.InsertPageBefore(new NoteInformation(NoteObject, PassedBy), this); await Navigation.PopAsync(); // added await?
             }
             else
             {

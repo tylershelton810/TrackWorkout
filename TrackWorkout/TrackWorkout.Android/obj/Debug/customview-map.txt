@@ -5,10 +5,8 @@ adaptive-icon;obj/Debug/res/mipmap-anydpi-v26/icon_round.xml
 alpha;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/anim/enterfromleft.xml
 alpha;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/anim/exittoleft.xml
 androidhud.ProgressWheel;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/1/jl/res/layout/loadingprogress.xml
-androidx.appcompat.widget.Toolbar;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/fallbacktoolbardonotuse.xml
 androidx.appcompat.widget.Toolbar;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/rootlayout.xml
 androidx.appcompat.widget.Toolbar;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/shellcontent.xml
-androidx.appcompat.widget.Toolbar;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/toolbar.xml
 androidx.appcompat.widget.Toolbar;obj/Debug/res/layout/toolbar.xml
 androidx.coordinatorlayout.widget.CoordinatorLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/flyoutcontent.xml
 androidx.coordinatorlayout.widget.CoordinatorLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/rootlayout.xml
@@ -25,12 +23,12 @@ com.google.android.material.appbar.AppBarLayout;/Users/tyler/Projects/TrackWorko
 com.google.android.material.appbar.AppBarLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/shellcontent.xml
 com.google.android.material.bottomnavigation.BottomNavigationView;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/bottomtablayout.xml
 com.google.android.material.floatingactionbutton.FloatingActionButton;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/4/jl/res/layout/bottomnavbar.xml
-com.google.android.material.tabs.TabLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/rootlayout.xml
-com.google.android.material.tabs.TabLayout;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/tabbar.xml
 com.google.android.material.tabs.TabLayout;obj/Debug/res/layout/tabbar.xml
 corners;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/1/jl/res/drawable/roundedbg.xml
 corners;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/1/jl/res/drawable/roundedbgdark.xml
+crc64057868e863d5b4ca.CurvedBottomNavigationView;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/4/jl/res/layout/bottomnavbar.xml
+crc64720bb2db43a66fe9.FormsViewPager;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/72/jl/res/layout/rootlayout.xml
 declare-styleable;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/1/jl/res/values/attrs.xml
 declare-styleable;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/7/jl/res/values/values.xml
 enum;/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/obj/Debug/lp/7/jl/res/values/values.xml

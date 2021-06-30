@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Linq;
 using TrackWorkout.Entitys;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,10 +13,18 @@ namespace TrackWorkout.Pages.AddExercise
         List<ExerciseList> listExercises = new List<ExerciseList>();
         
         public ExerciseList returnExercise;
+        public string TypeOfCall;
+        public int SupersetID;
 
-        public Single(List<ExerciseList> exerciseList)
+        public Single(List<ExerciseList> exerciseList, string Type, int superID = 0)
         {
             InitializeComponent();
+
+            //This is used to know what called the function 
+            TypeOfCall = Type;
+
+            //If passed with a superset it will have a value if not it will default to 0 approprietly. 
+            SupersetID = superID;
 
             listExercises = exerciseList;
 
@@ -103,6 +112,7 @@ namespace TrackWorkout.Pages.AddExercise
             ObjectToReturn.SecondMuscleCodeDescription = listOfExercisesWithSameFirstLetter[i].SecondMuscleCodeDescription;
             ObjectToReturn.ThirdMuscleCode = listOfExercisesWithSameFirstLetter[i].ThirdMuscleCode;
             ObjectToReturn.ThirdMuscleCodeDescription = listOfExercisesWithSameFirstLetter[i].ThirdMuscleCodeDescription;
+            ObjectToReturn.SupersetID = SupersetID;
 
             Button ExerciseButton = new Button
             {
@@ -119,14 +129,32 @@ namespace TrackWorkout.Pages.AddExercise
 
             ExerciseButton.Clicked += async (o, e) =>
             {
-                var QuestionPop = new Pages.PopUps.UserChoiceMessage("Confirm", $"Would you like to add {ExerciseButton.Text} to your routine?", "Yes", "No");
-                var answer = await QuestionPop.Show();
-                if (answer) // Yes
+                //What happens when the button is clicked. This needs to be handled by TypeOfCall
+                switch (TypeOfCall)
                 {
-                    returnExercise = ObjectToReturn;
-                    PopThisPage();
-                }               
+                    //Set the fonts per platform
+                    case "Add To Routine":
+                        ObjectToReturn.SupersetID = SupersetID;
+                        var QuestionPopAddToRoutine = new Pages.PopUps.UserChoiceMessage("Confirm", $"Would you like to add {ExerciseButton.Text} to your routine?", "Yes", "No");
+                        var answerAddToRoutine = await QuestionPopAddToRoutine.Show();
+                        if (answerAddToRoutine) // Yes
+                        {
+                            returnExercise = ObjectToReturn;
+                            PopThisPage();
+                        }
 
+                        break;
+                    case "Superset":
+                        var QuestionPopSuperset = new Pages.PopUps.UserChoiceMessage("Confirm", $"Would you like to add {ExerciseButton.Text} to your Superset?", "Yes", "No");
+                        var answerSuperset = await QuestionPopSuperset.Show();
+                        if (answerSuperset) // Yes
+                        {
+                            returnExercise = ObjectToReturn;
+                            PopThisPage();
+                        }
+
+                        break;
+                }
             };
                                    
         }

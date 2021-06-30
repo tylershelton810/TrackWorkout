@@ -792,7 +792,7 @@ namespace TrackWorkout
                                 await GridHeaderLabel.ScaleTo(0, 150);
 
                                 //Hide the grid and bring the History Grid into focus
-                                ProfilePicFrame.TranslateTo((screenSize.Width / 2) * -1, 0, 150);
+                                await ProfilePicFrame.TranslateTo((screenSize.Width / 2) * -1, 0, 150); //added await?
                                 HistoryButton.Opacity = 1;
                                 PersonalRecordButton.Opacity = .4;
                                 WeightEntryButton.Opacity = .4;

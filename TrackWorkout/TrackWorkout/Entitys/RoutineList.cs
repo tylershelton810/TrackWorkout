@@ -10,6 +10,7 @@ namespace TrackWorkout.Entitys
         public int RoutineID { get; set; }
         public string RoutineName { get; set; }
         public string ExerciseDescription { get; set; }
+        public int SupersetID { get; set; }
         public int ExerciseNumber { get; set; }
         public int SetNumber { get; set; }
         public string Weight { get; set; }

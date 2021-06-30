@@ -192,7 +192,7 @@ namespace TrackWorkout.Pages
                     {
                         DoneAnimation.IsVisible = true;
                         DoneAnimation.Play();
-                        soundOne.Play();
+                        //soundOne.Play();
                     }
                 }
                 catch (Exception ex)

@@ -156,7 +156,7 @@
                     </Picker.Items>
                 </Picker>
 
-                <Frame BackgroundColor="BlueViolet" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" BorderColor="White"/>
+                <Frame BackgroundColor="CadetBlue"  Grid.Row="1" Grid.Column="1" Grid.RowSpan="5" BorderColor="White"/>
                 <Frame BackgroundColor="Coral"      Grid.Row="1" Grid.Column="2" Grid.RowSpan="5" BorderColor="White" Margin="1,10,1,10"/>
                 <Frame BackgroundColor="OrangeRed"  Grid.Row="1" Grid.Column="3" Grid.RowSpan="5" BorderColor="White" Margin="2,30,2,30"/>
                 <Frame BackgroundColor="Firebrick"  Grid.Row="1" Grid.Column="4" Grid.RowSpan="5" BorderColor="White" Margin="4,50,4,50"/>

@@ -13,8 +13,6 @@ namespace TrackWorkout.Pages.Client
         List<ExerciseList> listExercises = new List<ExerciseList>();
 
         List<RoutineList> selectedExercises = new List<RoutineList>();
-        
-        string UserID;
 
         Entitys.ClientInformation ClientInfo;
 
@@ -127,7 +125,7 @@ namespace TrackWorkout.Pages.Client
 
             ExerciseContent.Children.Add(ExerciseButton, 0, i);
 
-            ExerciseButton.Clicked += async (o, e) =>
+            ExerciseButton.Clicked += (o, e) => //async
             {
                 RoutineList newRoutineObject = new RoutineList();
 

@@ -145,7 +145,7 @@ namespace TrackWorkout
             {
                 ButtonPop.Load("PopButton.wav");
             }
-            catch (Exception ex)
+            catch
             {
                 //do nothing
             }

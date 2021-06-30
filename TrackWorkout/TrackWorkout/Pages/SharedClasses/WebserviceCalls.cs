@@ -199,7 +199,6 @@ namespace TrackWorkout.Pages.SharedClasses
 
         public static async Task<string> DeleteRoutine(PassID ID)
         {
-            var client = new HttpClient();
             var jsonContent = JsonNet.Serialize(ID);
 
             try

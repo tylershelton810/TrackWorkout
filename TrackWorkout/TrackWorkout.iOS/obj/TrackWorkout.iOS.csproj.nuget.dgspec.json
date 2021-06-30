@@ -42,11 +42,11 @@
             },
             "Auth0.OidcClient.Core": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.2.1, )"
             },
             "Auth0.OidcClient.iOS": {
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[3.3.1, )"
             },
             "Com.Airbnb.Xamarin.Forms.Lottie": {
               "target": "Package",
@@ -122,7 +122,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.725, )"
+              "version": "[4.4.0.991864, )"
             },
             "uikit": {
               "target": "Package",
@@ -163,6 +163,7 @@
         },
         "frameworks": {
           "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
             "projectReferences": {}
           }
         },
@@ -174,6 +175,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "dependencies": {
             "Acr.UserDialogs": {
               "target": "Package",
@@ -265,7 +267,7 @@
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.725, )"
+              "version": "[4.4.0.991864, )"
             },
             "uikit": {
               "target": "Package",
@@ -287,7 +289,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.302/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.203/RuntimeIdentifierGraph.json"
         }
       }
     }

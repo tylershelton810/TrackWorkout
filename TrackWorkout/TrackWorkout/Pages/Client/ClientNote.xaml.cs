@@ -110,7 +110,6 @@ namespace TrackWorkout.Pages.Client
                 Entitys.NoteInformation NoteObject = listOfNotesWithSameType[y];
 
                 string NameToDisplay;
-                string connectingWord;
 
                 if (NoteObject.ToID == App.userInformationApp[0].UserId.ToString())
                 {
@@ -119,15 +118,6 @@ namespace TrackWorkout.Pages.Client
                 else
                 {
                     NameToDisplay = NoteObject.ToUser;
-                }
-
-                if (NoteObject.NoteType == "Conversation")
-                {
-                    connectingWord = " with ";
-                }
-                else
-                {
-                    connectingWord = " from ";
                 }
 
                 Button NoteButton = new Button

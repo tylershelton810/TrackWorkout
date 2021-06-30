@@ -13,7 +13,6 @@ namespace TrackWorkout.Pages.Client
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ClientRoutine : ContentPage
     {
-        bool PageLooper = true;
         Frame Filler = new Frame
         {
             BackgroundColor = Color.Transparent,

@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.TrackWorkout.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" Line="1319" Column="57" />
+      <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" Line="1295" Column="1" />
       <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml" />
       <File FileName="TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" />
       <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInformationEdit.xaml" />

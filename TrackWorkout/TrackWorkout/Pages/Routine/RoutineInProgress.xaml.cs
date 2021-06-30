@@ -81,7 +81,7 @@ namespace TrackWorkout.Pages.Routine
             TextColor = Color.White,
             BackgroundColor = Color.Transparent
         };
-       
+
 
 
         string FromSourceToPass;
@@ -190,11 +190,11 @@ namespace TrackWorkout.Pages.Routine
 
             // Create Header Label
             HeaderLabel.Text = doc.Element("Routine").Element("Name").Value;
-            double timerWidth = screenSize.Width/12;
+            double timerWidth = screenSize.Width / 12;
 
             RestClock.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
 
-      
+
 
             if (FromSourceToPass == "Coach" && oldRoutine.Locked == true)
             {
@@ -206,7 +206,7 @@ namespace TrackWorkout.Pages.Routine
                 Grid.SetColumnSpan(ClockBackground, 3);
                 RestClock.Children.Add(MinusTimer, 0, 0);
                 RestClock.Children.Add(TimerLabel, 1, 0);
-                RestClock.Children.Add(AddTimer, 2, 0);                             
+                RestClock.Children.Add(AddTimer, 2, 0);
             }
 
             //When the add timer is pressed
@@ -280,14 +280,14 @@ namespace TrackWorkout.Pages.Routine
             // handle the bar weight loader
             WeightDropDown.Unfocused += (o, e) =>
             {
-                ClearWeightTool();
+                ClearWeightToolAsync();
             };
 
             number45Count.Unfocused += (o, e) =>
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
 
@@ -295,7 +295,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
 
@@ -303,7 +303,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
 
@@ -311,7 +311,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
 
@@ -319,7 +319,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
 
@@ -327,7 +327,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 if (WeightDropDown.SelectedIndex != 0)
                 {
-                    ClearWeightTool();
+                    ClearWeightToolAsync();
                 }
             };
         }
@@ -361,7 +361,7 @@ namespace TrackWorkout.Pages.Routine
             PressAddExercise(sender, e);
         }
 
-        private void ClearWeightTool()
+        private async Task ClearWeightToolAsync() //added await?
         {
             foreach (var valueProperty in BarbellGrid.Children.ToList())
             {
@@ -371,19 +371,21 @@ namespace TrackWorkout.Pages.Routine
                 }
             }
 
-            CalculateWeightAsync();
+            await CalculateWeightAsync(); //added await?
         }
 
         private void BuildRoutine(int Type)
         {
             // Create a node list to loop through to create the page
             IEnumerable<XElement> loopThrough;
+            int SupersetID = 0;
 
             // 1 means it is on load of the page while a 2 indicates it was an added exercise
             if (Type == 1)
             {
-                // Loop all exercises
-                loopThrough = doc.Element("Routine").Elements("Exercise");
+                loopThrough = doc.Element("Routine")
+                                 .Elements("Exercise")
+                                 .OrderBy(x => x.Element("Number").Value);
             }
             else
             {
@@ -392,15 +394,87 @@ namespace TrackWorkout.Pages.Routine
                 loopThrough = doc.Element("Routine").Elements("Exercise").Where(Number => Int32.Parse(Number.Element("Number").Value) == maxExercise);
             }
 
+
             // Loop through creating grids for the each exercise
             foreach (var exercise in loopThrough)
             {
+                if (exercise.Attribute("SupersetID").Value == "0")
+                {
+                    //Loop through to create group set or single exercises
+                    var dataToPass = CreateSingleExerciseGroup(exercise, Type);
+
+                    AddFrameToPage(dataToPass);
+                }
+                else
+                {
+
+                    if (Int32.Parse(exercise.Attribute("SupersetID").Value) != SupersetID)
+                    {
+                        //Start Creating new superset
+                        SupersetID = Int32.Parse(exercise.Attribute("SupersetID").Value);
+
+                        CreateSupersetExerciseGroup(exercise, Type);
+                    }
+                }
+            }
+        }
+    
+
+        private void CreateSupersetExerciseGroup(XElement exercise, int type)
+        {
+            //Create a list of all exercises in the superset
+            IEnumerable<XElement> exerciseInSuperset = GetSupersetList(exercise);
+
+            int SupersetCount = exerciseInSuperset.Count();
+            int currentCount = 1;
+
+            // Create Frame
+            Frame ExerciseFrame = new Frame
+            {
+                HasShadow = false,
+                Padding = new Thickness(0, 0, 0, 0),
+                Margin = new Thickness(0, 0, 0, 10),
+            };
+
+            if (FromSourceToPass == "Coach" && oldRoutine.Locked == true)
+            {
+                ExerciseFrame.Padding = new Thickness(0, 0, 0, 10);
+            }
+
+            // Create grid on this loop
+            Grid ExerciseContent = new Grid
+            {
+                RowSpacing = 0,
+                ColumnSpacing = 0,
+                BackgroundColor = Color.White,
+                ColumnDefinitions = {
+                            new ColumnDefinition { Width = 75 },
+                            new ColumnDefinition { Width = 75 },
+                            new ColumnDefinition { Width = 75 },
+                            new ColumnDefinition { Width = 75 },
+                            new ColumnDefinition { Width = GridLength.Star }
+                        }
+            };
+
+            foreach (var exerc in exerciseInSuperset)
+            {
+                bool isLastInSuperset = false;
+                bool isFirseInSuperset = false;
+                if (currentCount == SupersetCount)
+                {
+                    isLastInSuperset = true;
+                }
+                if (currentCount == 1)
+                {
+                    isFirseInSuperset = true;
+                }
+
                 string LastLabel = "";
 
                 try
                 {
                     // If this exist it will continue, otherwise it will exeption leaving the Label text blank.
-                    XElement HistoryExist = lastRoutine.Descendants("Exercise").Where(x => x.Element("ID").Value == exercise.Element("ID").Value).First();
+                    XElement HistoryExist = lastRoutine.Descendants("Exercise").Where(x => x.Element("ID").Value == exerc.Element("ID").Value).First();
 
                     LastLabel = "Last";
                 }
@@ -412,7 +486,7 @@ namespace TrackWorkout.Pages.Routine
                 // Create Name Label
                 Label ExerciseLabel = new Label
                 {
-                    Text = exercise.Element("Description").Value,
+                    Text = exerc.Element("Description").Value.TrimStart().TrimEnd(),
                     FontFamily = App.CustomRegular,
                     FontSize = 15,
                     HeightRequest = 20,
@@ -421,6 +495,77 @@ namespace TrackWorkout.Pages.Routine
                     VerticalOptions = LayoutOptions.End,
                     TextColor = App.PrimaryThemeColor,
                     BackgroundColor = Color.Transparent
+                };
+
+                //This will only be added to first in a superset or if it is not a superset. 
+                //Create ListMenu Icon
+                ImageButton ExerciseOption = new ImageButton
+                {
+                    Source = "ListMenu.png",
+                    HorizontalOptions = LayoutOptions.End,
+                    WidthRequest = 25,
+                    Margin = new Thickness(0, 10, 30, 0)
+                };
+
+                //When the add timer is pressed
+                ExerciseOption.Clicked += async (o, e) =>
+                {
+                // By adding nul here the red option is ignored
+                string action = await DisplayActionSheet(exerc.Element("Description").Value + " Options", "Cancel", null, "Superset", "Alter Rest Time");
+
+                    if (action == "Superset")
+                    {
+                    //Get the superset ID
+                    int superSetID = int.Parse(exerc.Attribute("SupersetID").Value);
+                    //If the superset ID does not exists then we need to increment the ID from the highest one
+                    if (superSetID == 0)
+                        {
+                            superSetID = doc.Element("Routine").Elements("Exercise").Max(supersetID => Int32.Parse(supersetID.Attribute("SupersetID").Value)) + 1;
+                        }
+                        action = await DisplayActionSheet(exercise.Element("Description").Value + " Superset", "Cancel", null, "Combine with existing exercise?", "Add new exercise");
+
+                        if (action == "Combine with existing exercise?")
+                        {
+                        // Create Exercise List
+                        List<ExerciseList> ExerciseLstToPass = new List<ExerciseList>();
+
+                        //Get list of exercises in the current workout
+                        foreach (var holder in doc.Element("Routine").Elements("Exercise"))
+                            {
+                            //Ensure that the exercise where the options button was clicked does not make it in.
+                            if (exercise.Element("Description").Value != holder.Element("Description").Value)
+                                {
+                                    ExerciseList Obj = new ExerciseList
+                                    {
+                                        ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseID.ToString()),
+                                        FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstLetter.ToString()),
+                                        ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseDescription,
+                                        FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCode.ToString()),
+                                        FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCodeDescription,
+                                        SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCode,
+                                        SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCodeDescription,
+                                        ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCode,
+                                        ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCodeDescription
+                                    };
+
+                                    ExerciseLstToPass.Add(Obj);
+                                }
+                            }
+                        //Handle popup page 
+                        Application.Current.ModalPopping += HandleModalPopping;
+                            myPage = new AddExercise.Single(ExerciseLstToPass, "Superset", superSetID);
+
+                            await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
+                        }
+                        else if (action == "Add new exercise")
+                        {
+
+                        }
+                    }
+                    else if (action == "Alter Rest Time")
+                    {
+
+                    }
                 };
 
                 // Create Weight Label
@@ -474,19 +619,6 @@ namespace TrackWorkout.Pages.Routine
                     BackgroundColor = Color.Transparent
                 };
 
-                // Create Frame
-                Frame ExerciseFrame = new Frame
-                {
-                    HasShadow = false,
-                    Padding = new Thickness(0,0,0,0),
-                    Margin = new Thickness(0, 0, 0, 10),
-                };
-
-                if (FromSourceToPass == "Coach" && oldRoutine.Locked == true)
-                {
-                    ExerciseFrame.Padding = new Thickness(0, 0, 0, 10);
-                }
-
                 // Create grid for exercise label
                 Grid ExerciseHeader = new Grid
                 {
@@ -498,57 +630,281 @@ namespace TrackWorkout.Pages.Routine
                         }
                 };
 
-                ExerciseHeader.RowDefinitions.Add(new RowDefinition { Height = new GridLength(35, GridUnitType.Absolute) });
-                ExerciseHeader.Children.Add(ExerciseLabel, 0, 0);
-
-                // Add Exercise Name to the Screen
-                gridStack.Children.Add(ExerciseHeader);
-
-                // Create grid on this loop
-                Grid ExerciseContent = new Grid
+                if (isFirseInSuperset)
                 {
-                    RowSpacing = 0,
-                    ColumnSpacing = 0,
-                    BackgroundColor = Color.White,
-                    ColumnDefinitions = {
+                    ExerciseHeader.RowDefinitions.Add(new RowDefinition { Height = new GridLength(35, GridUnitType.Absolute) });
+                    ExerciseHeader.Children.Add(ExerciseLabel, 0, 0);
+
+                    ExerciseHeader.Children.Add(ExerciseOption, 1, 0);
+                    // Add Exercise Name to the Screen
+                    gridStack.Children.Add(ExerciseHeader);
+                }
+                else
+                {
+                    //We have to include the header in the Exercise Content Grid after the first one.
+                    ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+                    ExerciseContent.Children.Add(ExerciseLabel, 0, ExerciseContent.RowDefinitions.Count() - 1);
+                    //Header can span 5 columns
+                    Grid.SetColumnSpan(ExerciseLabel, 5);
+                }
+
+
+                // Add Row to Grid that will contain the headers. Then add the headers to the grid
+                ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+                ExerciseContent.Children.Add(WeightLabel, 0, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(LastWeightLabel, 1, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(RepsLabel, 2, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(LastRepsLabel, 3, ExerciseContent.RowDefinitions.Count() - 1);
+
+                // Fill the grid with Reps and Weight values
+                FillGrid(exerc, ExerciseContent, ExerciseHeader, ExerciseFrame, type, isLastInSuperset, true);
+
+                currentCount++;
+            }
+
+            // Add Grid to Frame
+            ExerciseFrame.Content = ExerciseContent;
+            // Add Frame to page
+            gridStack.Children.Add(ExerciseFrame);
+        }
+
+        private void AddFrameToPage(Tuple<XElement, Grid, Grid, int> dataToPass)
+        {
+            // Create Frame
+            Frame ExerciseFrame = new Frame
+            {
+                HasShadow = false,
+                Padding = new Thickness(0, 0, 0, 0),
+                Margin = new Thickness(0, 0, 0, 10),
+            };
+
+            if (FromSourceToPass == "Coach" && oldRoutine.Locked == true)
+            {
+                ExerciseFrame.Padding = new Thickness(0, 0, 0, 10);
+            }
+
+            // Fill the grid with Reps and Weight values
+            //Tuple<XElement, Grid, Grid, int>(exercise, ExerciseContent, ExerciseHeader, type);
+            FillGrid(dataToPass.Item1, dataToPass.Item2, dataToPass.Item3, ExerciseFrame, dataToPass.Item4);
+
+            // Add Grid to Frame // item2 is the ExerciseContent grid
+            ExerciseFrame.Content = dataToPass.Item2;
+            // Add Frame to page
+            gridStack.Children.Add(ExerciseFrame);
+        }
+
+        private Tuple<XElement, Grid, Grid, int> CreateSingleExerciseGroup(XElement exercise, int type, bool superset = false)
+        {
+            string LastLabel = "";
+
+            try
+            {
+                // If this exist it will continue, otherwise it will exeption leaving the Label text blank.
+                XElement HistoryExist = lastRoutine.Descendants("Exercise").Where(x => x.Element("ID").Value == exercise.Element("ID").Value).First();
+
+                LastLabel = "Last";
+            }
+            catch
+            {
+                // Do Nothing
+            }
+
+            // Create Name Label
+            Label ExerciseLabel = new Label
+            {
+                Text = exercise.Element("Description").Value.TrimStart().TrimEnd(),
+                FontFamily = App.CustomRegular,
+                FontSize = 15,
+                HeightRequest = 20,
+                Margin = new Thickness(15, 0, 0, 0),
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.End,
+                TextColor = App.PrimaryThemeColor,
+                BackgroundColor = Color.Transparent
+            };
+
+            //This will only be added to first in a superset or if it is not a superset. 
+            //Create ListMenu Icon
+            ImageButton ExerciseOption = new ImageButton
+            {
+                Source = "ListMenu.png",
+                HorizontalOptions = LayoutOptions.End,
+                WidthRequest = 25,
+                Margin = new Thickness(0, 10, 30, 0)
+            };
+
+            //When the add timer is pressed
+            ExerciseOption.Clicked += async (o, e) =>
+            {
+                    // By adding nul here the red option is ignored
+                    string action = await DisplayActionSheet(exercise.Element("Description").Value + " Options", "Cancel", null, "Superset", "Alter Rest Time");
+
+                if (action == "Superset")
+                {
+                        //Get the superset ID
+                        int superSetID = int.Parse(exercise.Attribute("SupersetID").Value);
+                        //If the superset ID does not exists then we need to increment the ID from the highest one
+                        if (superSetID == 0)
+                    {
+                        superSetID = doc.Element("Routine").Elements("Exercise").Max(supersetID => Int32.Parse(supersetID.Attribute("SupersetID").Value)) + 1;
+                    }
+                    action = await DisplayActionSheet(exercise.Element("Description").Value + " Superset", "Cancel", null, "Combine with existing exercise?", "Add new exercise");
+
+                    if (action == "Combine with existing exercise?")
+                    {
+                            // Create Exercise List
+                            List<ExerciseList> ExerciseLstToPass = new List<ExerciseList>();
+
+                            //Get list of exercises in the current workout
+                            foreach (var holder in doc.Element("Routine").Elements("Exercise"))
+                        {
+                                //Ensure that the exercise where the options button was clicked does not make it in.
+                                if (exercise.Element("Description").Value != holder.Element("Description").Value)
+                            {
+                                ExerciseList Obj = new ExerciseList
+                                {
+                                    ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseID.ToString()),
+                                    FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstLetter.ToString()),
+                                    ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseDescription,
+                                    FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCode.ToString()),
+                                    FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCodeDescription,
+                                    SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCode,
+                                    SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCodeDescription,
+                                    ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCode,
+                                    ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCodeDescription
+                                };
+
+                                ExerciseLstToPass.Add(Obj);
+                            }
+                        }
+                            //Handle popup page 
+                            Application.Current.ModalPopping += HandleModalPopping;
+                        myPage = new AddExercise.Single(ExerciseLstToPass, "Superset", superSetID);
+
+                        await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
+                    }
+                    else if (action == "Add new exercise")
+                    {
+
+                    }
+                }
+                else if (action == "Alter Rest Time")
+                {
+
+                }
+            };
+
+            // Create Weight Label
+            Label WeightLabel = new Label
+            {
+                Text = "Weight",
+                FontFamily = App.CustomBold,
+                FontAttributes = FontAttributes.Bold,
+
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                TextColor = Color.Gray
+            };
+
+            // Create Last Weight Label
+            Label LastWeightLabel = new Label
+            {
+                Text = LastLabel,
+                FontFamily = App.CustomBold,
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                TextColor = Color.LightGray
+            };
+
+            // Create Reps Label
+            Label RepsLabel = new Label
+            {
+                Text = "Reps",
+                FontFamily = App.CustomBold,
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                TextColor = Color.Gray,
+                BackgroundColor = Color.Transparent
+            };
+
+            // Create Last Reps Label
+            Label LastRepsLabel = new Label
+            {
+                Text = LastLabel,
+                FontFamily = App.CustomBold,
+                FontAttributes = FontAttributes.Bold,
+                FontSize = 15,
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.End,
+                TextColor = Color.LightGray,
+                BackgroundColor = Color.Transparent
+            };
+
+            
+
+            // Create grid for exercise label
+            Grid ExerciseHeader = new Grid
+            {
+                RowSpacing = 0,
+                ColumnSpacing = 0,
+                BackgroundColor = Color.Transparent,
+                ColumnDefinitions = {
+                            new ColumnDefinition { Width = GridLength.Star }
+                        }
+            };
+
+            ExerciseHeader.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+            ExerciseHeader.Children.Add(ExerciseLabel, 0, 0);
+
+            ExerciseHeader.Children.Add(ExerciseOption, 1, 0);
+            
+
+            // Add Exercise Name to the Screen
+            gridStack.Children.Add(ExerciseHeader);
+
+            // Create grid on this loop
+            Grid ExerciseContent = new Grid
+            {
+                RowSpacing = 0,
+                ColumnSpacing = 0,
+                BackgroundColor = Color.White,
+                ColumnDefinitions = {
                             new ColumnDefinition { Width = 75 },
                             new ColumnDefinition { Width = 75 },
                             new ColumnDefinition { Width = 75 },
                             new ColumnDefinition { Width = 75 },
                             new ColumnDefinition { Width = GridLength.Star }
                         }
-                };
+            };
 
-                // Add Row to Grid that will contain the headers. Then add the headers to the grid
-                ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(30, GridUnitType.Absolute) });
-                ExerciseContent.Children.Add(WeightLabel, 0, 0);
-                ExerciseContent.Children.Add(LastWeightLabel, 1, 0);
-                ExerciseContent.Children.Add(RepsLabel, 2, 0);
-                ExerciseContent.Children.Add(LastRepsLabel, 3, 0);
+            // Add Row to Grid that will contain the headers. Then add the headers to the grid
+            ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(30, GridUnitType.Absolute) });
+            ExerciseContent.Children.Add(WeightLabel, 0, 0);
+            ExerciseContent.Children.Add(LastWeightLabel, 1, 0);
+            ExerciseContent.Children.Add(RepsLabel, 2, 0);
+            ExerciseContent.Children.Add(LastRepsLabel, 3, 0);
 
-                // Fill the grid with Reps and Weight values
-                FillGrid(exercise, ExerciseContent, ExerciseHeader, ExerciseFrame, Type);
+            return new Tuple<XElement, Grid, Grid, int>(exercise, ExerciseContent, ExerciseHeader, type);
 
-                // Add Grid to Frame
-                ExerciseFrame.Content = ExerciseContent;
-
-                // Add Frame to page
-                gridStack.Children.Add(ExerciseFrame);
-
-            }
+            
         }
 
         // Use to fill the exercise info
-        private void FillGrid(XElement exercise, Grid ExerciseContent, Grid ExerciseHeader, Frame ExerciseFrame, int Type)
+        private void FillGrid(XElement exercise, Grid ExerciseContent, Grid ExerciseHeader, Frame ExerciseFrame, int Type, bool isLastInSuper = false, bool isSuper = false)
         {
             // Loop through each set filling in the rest of the grid
             foreach (var set in exercise.Elements("Set"))
             {
-                AddRow(set, exercise, ExerciseContent, ExerciseHeader, ExerciseFrame, Type);
+                AddRow(set, exercise, ExerciseContent, ExerciseHeader, ExerciseFrame, Type, isLastInSuper, isSuper);
             }
         }
 
-        private void AddRow(XElement set, XElement exercise, Grid ExerciseContent, Grid ExerciseHeader, Frame ExerciseFrame, int Type)
+        private void AddRow(XElement set, XElement exercise, Grid ExerciseContent, Grid ExerciseHeader, Frame ExerciseFrame, int Type, bool isLastInSuper = false, bool isSuper = false)
         {
             // Create new object and fill with XML data.
             RoutineList newRoutineObject = new RoutineList();
@@ -570,11 +926,11 @@ namespace TrackWorkout.Pages.Routine
                 // Do Nothing but do not error
             }
             newRoutineObject.ExerciseNumber = Int32.Parse(exercise.Element("Number").Value);
-            newRoutineObject.Reps = set.Element("Reps").Value;
+            newRoutineObject.Reps = set.Element("Reps").Value.TrimStart().TrimEnd();
             newRoutineObject.SetNumber = Int32.Parse(set.Element("Number").Value);
-            newRoutineObject.Weight = set.Element("Weight").Value;
+            newRoutineObject.Weight = set.Element("Weight").Value.TrimStart().TrimEnd();
             newRoutineObject.RestTimeAfterSet = Int32.Parse(exercise.Element("RestTimeAfterSet").Value);
-            newRoutineObject.ExerciseDescription = exercise.Element("Description").Value;
+            newRoutineObject.ExerciseDescription = exercise.Element("Description").Value.TrimStart().TrimEnd();
 
             // Create objects for the UI
             MyEntry WeightEntry = new MyEntry
@@ -670,25 +1026,50 @@ namespace TrackWorkout.Pages.Routine
 
             // Create UI row for entry fields
             ButtonFrame.Content = CompleteSet;
-            ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
-            ExerciseContent.Children.Add(WeightEntry, 0, newRoutineObject.SetNumber);
-            ExerciseContent.Children.Add(LastWeight, 1, newRoutineObject.SetNumber);
-            ExerciseContent.Children.Add(RepEntry, 2, newRoutineObject.SetNumber);
-            ExerciseContent.Children.Add(LastRep, 3, newRoutineObject.SetNumber);
-            ExerciseContent.Children.Add(ButtonFrame, 4, newRoutineObject.SetNumber);
+
+            //If it is building the page, or it is last in the superset, or it is not a superset at all
+            if (Type == 1 || isLastInSuper || isSuper == false)
+            {
+                ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+                ExerciseContent.Children.Add(WeightEntry, 0, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(LastWeight, 1, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(RepEntry, 2, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(LastRep, 3, ExerciseContent.RowDefinitions.Count() - 1);
+                ExerciseContent.Children.Add(ButtonFrame, 4, ExerciseContent.RowDefinitions.Count() - 1);
+            }
+            else
+            {
+                int index = GetSupersetIndex(exercise, ExerciseContent);
+
+                //Add the new row
+                ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+
+                //Move the rows that are below the decided index down one with all the child elements
+                foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) >= index).OrderByDescending(child => Grid.GetRow(child)))
+                {
+                    Grid.SetRow(child, Grid.GetRow(child) + 1);
+                }
+
+                //Place the new row at the index.
+                ExerciseContent.Children.Add(WeightEntry, 0, index);
+                ExerciseContent.Children.Add(LastWeight, 1, index);
+                ExerciseContent.Children.Add(RepEntry, 2, index);
+                ExerciseContent.Children.Add(LastRep, 3, index);
+                ExerciseContent.Children.Add(ButtonFrame, 4, index);
+            }
 
             // If this is the last set go ahead and add another row for the add remove set buttons. 
             if (newRoutineObject.SetNumber == maxSetForExercise)
             {
-                if (FromSourceToPass == "Coach" && oldRoutine.Locked == true)
+                if (FromSourceToPass != "Coach" || oldRoutine.Locked == false)
                 {
-                    // Do Nothing here
-                }
-                else
-                {
-                    ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
-                    ExerciseContent.Children.Add(AddSet, 0, newRoutineObject.SetNumber + 1);
-                    ExerciseContent.Children.Add(RemoveSet, 2, newRoutineObject.SetNumber + 1);
+                    //if not a superset or is the last exercise in a superset
+                    if (isSuper == false || isLastInSuper)
+                    {
+                        ExerciseContent.RowDefinitions.Add(new RowDefinition { Height = new GridLength(40, GridUnitType.Absolute) });
+                        ExerciseContent.Children.Add(AddSet, 0, ExerciseContent.RowDefinitions.Count() - 1);
+                        ExerciseContent.Children.Add(RemoveSet, 2, ExerciseContent.RowDefinitions.Count() - 1);
+                    }
                 }
             }
 
@@ -878,17 +1259,43 @@ namespace TrackWorkout.Pages.Routine
                 }
             };
 
-            // Add set click
+            // Add set click //DO SOMETHING FOR SUPER
             AddSet.Clicked += (o, e) =>
             {
-                AddSetClick(ExerciseContent, set, exercise, ExerciseHeader, ExerciseFrame);
+                if (isSuper)
+                {
+                    //Create a list of all exercises in the superset
+                    IEnumerable<XElement> exerciseInSuperset = GetSupersetList(exercise);
+
+                    //If it is a superset it needs to loop through this call for each exercise in the superset
+                    foreach (var eachExcercise in exerciseInSuperset)
+                    {
+                        isLastInSuper = false;
+                        bool isFirstInSuper = false;
+
+                        if (eachExcercise == exerciseInSuperset.Last())
+                        {
+                            isLastInSuper = true;
+                        }
+                        if (eachExcercise == exerciseInSuperset.First())
+                        {
+                            isFirstInSuper = true;
+                        }
+
+                        AddSetClick(ExerciseContent, set, eachExcercise, ExerciseHeader, ExerciseFrame, isLastInSuper, isSuper, isFirstInSuper);
+                    }
+                }
+                else
+                {
+                    //Not a superset so this is only called once. 
+                    AddSetClick(ExerciseContent, set, exercise, ExerciseHeader, ExerciseFrame, isLastInSuper, isSuper);
+                }
+
             };
 
+            //DO SOMETHING FOR SUPER
             RemoveSet.Clicked += async (o, e) =>
             {
-                // Get index to handle the UI. This is 0 based so when handling the max exercise ID subtract 1
-                var lastListElement = exercise.Elements("Set").Max(x => (int)x.Element("Number")) - 1;
-
                 // Stops the last set from being removed.
                 if (doc.Element("Routine").Elements("Exercise").Elements("Set").Count() == 1)
                 {
@@ -899,67 +1306,169 @@ namespace TrackWorkout.Pages.Routine
                 }
                 else
                 {
-                    // 3 rows means there is only one data row left. Row 0 = headers Row 1 = data Row 2 = buttons.
-                    // This if will delete the rest of the gris completely.
-                    if (ExerciseContent.RowDefinitions.Count == 3)
+                    // Remove the Add and Remove buttons
+                    if (isSuper == true)
                     {
-                        foreach (var child in ExerciseContent.Children.ToList())
+                        //Create a list of all exercises in the superset
+                        IEnumerable<XElement> exerciseInSuperset = GetSupersetList(exercise);
+
+                        //If it is a superset it needs to loop through this call for each exercise in the superset
+                        foreach (var eachExcercise in exerciseInSuperset)
                         {
-                            ExerciseContent.Children.Remove(child);
+                            isLastInSuper = false;
+                            bool isFirstInSuper = false;
+
+                            if (eachExcercise == exerciseInSuperset.Last())
+                            {
+                                isLastInSuper = true;
+                            }
+                            if (eachExcercise == exerciseInSuperset.First())
+                            {
+                                isFirstInSuper = true;
+                            }
+                            //Count the sets left before deleting
+                            int numOfSets = Int32.Parse(
+                                            eachExcercise.Elements("Set")
+                                                         .Max(x => x.Element("Number").Value));
+                            //Get index to remove for the UI
+                            int index = GetSupersetIndex(eachExcercise, ExerciseContent);
+
+                            index--;
+
+                            //Remove Childrend from UI
+                            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == index))
+                            {
+                                ExerciseContent.Children.Remove(child);
+                            }
+
+                            //Remove Content row WHY IS THIS NOT DOING ANYTHING?????
+                            ExerciseContent.RowDefinitions.RemoveAt(index);
+
+                            // Remove from the xml
+                            doc.Element("Routine")
+                                .Elements("Exercise")
+                                .Where(x => x.Element("ID").Value == eachExcercise.Element("ID").Value)
+                                .Elements("Set")
+                                .Where(z => z.Element("Number").Value == eachExcercise.Elements("Set").Max(y => y.Element("Number").Value))
+                                .Remove();
+
+                            if (numOfSets == 1)
+                            {
+                                //Remove complete excercise
+                                //XML Data
+                                doc.Element("Routine")
+                                   .Elements("Exercise")
+                                   .Where(x => x.Element("ID").Value == eachExcercise.Element("ID").Value)
+                                   .Remove();
+
+                                //UI - The set has already been removed
+                                ExerciseContent.RowDefinitions.RemoveAt(index);
+
+                                if (isFirstInSuper)
+                                {
+                                    ExerciseHeader.Children.RemoveAt(1);
+                                    ExerciseHeader.Children.RemoveAt(0);
+                                    ExerciseHeader.RowDefinitions.RemoveAt(0);
+                                }
+                                //The exercise name is not in the header but in the ExerciseContent
+                                else
+                                {
+                                    //Remove the header children
+                                    foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == index - 1))
+                                    {
+                                        ExerciseContent.Children.Remove(child);
+                                    }
+
+                                    //Remove the header Content row
+                                    ExerciseContent.RowDefinitions.RemoveAt(index);
+
+                                    if (isLastInSuper)
+                                    {
+                                        //Remove the header children
+                                        foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == index))
+                                        {
+                                            ExerciseContent.Children.Remove(child);
+                                        }
+                                        //Remove the Add Remove buttons
+                                        ExerciseContent.RowDefinitions.RemoveAt(index);
+                                    }
+                                }
+                            }
+
+                            var test = doc;
+
+
                         }
-
-                        ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
-                        ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
-                        ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
-
-                        //ExerciseHeader.RowDefinitions.RemoveAt(1);
-                        ExerciseHeader.Children.RemoveAt(0);
-                        ExerciseHeader.RowDefinitions.RemoveAt(0);
-
-                        gridStack.Children.Remove(ExerciseFrame);
                     }
-
-                    // This loop will delete the last data row
                     else
                     {
-                        foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == ExerciseContent.RowDefinitions.Count - 2))
+                        // Get index to handle the UI. This is 0 based so when handling the max exercise ID subtract 1
+                        var lastListElement = exercise.Elements("Set").Max(x => (int)x.Element("Number")) - 1;
+
+
+                        // 3 rows means there is only one data row left. Row 0 = headers Row 1 = data Row 2 = buttons.
+                        // This if will delete the rest of the grid completely.
+                        if (ExerciseContent.RowDefinitions.Count == 3)
                         {
-                            ExerciseContent.Children.Remove(child);
+                            foreach (var child in ExerciseContent.Children.ToList())
+                            {
+                                ExerciseContent.Children.Remove(child);
+                            }
+
+                            ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
+                            ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
+                            ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
+
+                            ExerciseHeader.Children.RemoveAt(1);
+                            ExerciseHeader.Children.RemoveAt(0);
+                            ExerciseHeader.RowDefinitions.RemoveAt(0);
+
+                            gridStack.Children.Remove(ExerciseFrame);
                         }
 
-                        foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) > ExerciseContent.RowDefinitions.Count - 2))
+                        // This loop will delete the last data row
+                        else
                         {
-                            //ExerciseContent.Children.Remove(child);
-                            Grid.SetRow(child, Grid.GetRow(child) - 1);
+                            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == ExerciseContent.RowDefinitions.Count - 2))
+                            {
+                                ExerciseContent.Children.Remove(child);
+                            }
+
+                            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) > ExerciseContent.RowDefinitions.Count - 2))
+                            {
+                                //ExerciseContent.Children.Remove(child);
+                                Grid.SetRow(child, Grid.GetRow(child) - 1);
+                            }
+
+                            ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 2);
                         }
 
-                        ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 2);
-                    }
+                        // This removed it from the list completely. REMOVES IT FROM THE XML                                    
+                        if (lastListElement == 0)
+                        {
+                            doc.Element("Routine").Elements("Exercise").Where(x => x.Element("ID").Value == exercise.Element("ID").Value).Remove();
+                        }
+                        else
+                        {
+                            exercise.Elements("Set").Where(x => (int)x.Element("Number") == lastListElement + 1).Remove();
+                        }
 
-                    // This removed it from the list completely. REMOVES IT FROM THE XML                                    
-                    if (lastListElement == 0)
-                    {
-                        doc.Element("Routine").Elements("Exercise").Where(x => x.Element("ID").Value == exercise.Element("ID").Value).Remove();
-                    }
-                    else
-                    {
-                        exercise.Elements("Set").Where(x => (int)x.Element("Number") == lastListElement + 1).Remove();
-                    }
+                        if (doc.Element("Routine").Elements("Exercise").Elements("Set").Count() == 1)
+                        {
+                            RemoveSet.IsVisible = false;
+                        }
+                        if (doc.Element("Routine").Elements("Exercise").Elements("Set").Count() == 2)
+                        {
+                            RemoveSet.IsVisible = true;
+                        }
 
-                    if (doc.Element("Routine").Elements("Exercise").Elements("Set").Count() == 1)
-                    {
-                        RemoveSet.IsVisible = false;
-                    }
-                    if (doc.Element("Routine").Elements("Exercise").Elements("Set").Count() == 2)
-                    {
-                        RemoveSet.IsVisible = true;
                     }
                 }
 
             };
         }
 
-        private void AddSetClick(Grid ExerciseContent, XElement set, XElement exercise, Grid ExerciseHeader, Frame ExerciseFrame)
+        private void AddSetClick(Grid ExerciseContent, XElement set, XElement exercise, Grid ExerciseHeader, Frame ExerciseFrame, bool isLastInSuper, bool isSuper, bool isFirstInSuper = false)
         {
             // Create new object based off of XML data
             var RowToAdd = new RoutineList();
@@ -977,17 +1486,20 @@ namespace TrackWorkout.Pages.Routine
             RowToAdd.Weight = lastSetNode.Max(x => (string)x.Element("Weight"));
 
             // Remove the Add and Remove buttons
-            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == lastGridRowElement))
+            if (isSuper == false || isLastInSuper == true)
             {
-                ExerciseContent.Children.Remove(child);
-            }
+                foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == lastGridRowElement))
+                {
+                    ExerciseContent.Children.Remove(child);
+                }
 
-            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) > lastGridRowElement))
-            {
-                Grid.SetRow(child, Grid.GetRow(child) - 1);
-            }
+                foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) > lastGridRowElement))
+                {
+                    Grid.SetRow(child, Grid.GetRow(child) - 1);
+                }
 
-            ExerciseContent.RowDefinitions.RemoveAt(lastGridRowElement);
+                ExerciseContent.RowDefinitions.RemoveAt(lastGridRowElement);
+            }
 
             // Create new Set
             XElement SetX = new XElement("Set",
@@ -1007,7 +1519,7 @@ namespace TrackWorkout.Pages.Routine
             }
 
             // Add a row in the UI and place back the Add and remove buttons
-            AddRow(SetX, exercise, ExerciseContent, ExerciseHeader, ExerciseFrame, 1);
+            AddRow(SetX, exercise, ExerciseContent, ExerciseHeader, ExerciseFrame, 2, isLastInSuper, isSuper);
         }
 
         private async void FinishRoutine()
@@ -1033,7 +1545,7 @@ namespace TrackWorkout.Pages.Routine
             {
                 //Handle popup page 
                 Application.Current.ModalPopping += HandleModalPopping;
-                myPage = new AddExercise.Single(App.exerciseListApp);
+                myPage = new AddExercise.Single(App.exerciseListApp, "Add To Routine");
 
                 await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
             }
@@ -1067,35 +1579,8 @@ namespace TrackWorkout.Pages.Routine
                 }
                 else
                 {
-
-                    RoutineList NewExerciseObject = new RoutineList();
-
-                    NewExerciseObject.ExerciseDescription = PageExerciseObject.ExerciseDescription;
-                    NewExerciseObject.KeepRow = false;
-                    NewExerciseObject.Reps = "0";
-                    NewExerciseObject.RestTimeAfterSet = 30;
-                    NewExerciseObject.SetNumber = 1;
-                    NewExerciseObject.Weight = "0";
-
-                    int NewExerciseNumber = doc.Element("Routine").Elements("Exercise").Max(Number => Int32.Parse(Number.Element("Number").Value)) + 1;
-                    NewExerciseObject.ExerciseNumber = NewExerciseNumber;
-
-                    XElement ExerciseX = new XElement("Exercise",
-                                            new XElement("Number", NewExerciseNumber),
-                                              new XElement("Description", PageExerciseObject.ExerciseDescription),
-                                              new XElement("ID", PageExerciseObject.ExerciseID),
-                                              new XElement("RestTimeAfterSet", 60),
-                                              new XElement("Set",
-                                                  new XElement("Number", "1"),
-                                                  new XElement("Reps", "0"),
-                                                  new XElement("Weight", "0"),
-                                                  new XElement("KeepRow", 0)
-                                                 ) // end Set 
-                                             ); // end Exercise
-
-                    doc.Element("Routine").Add(ExerciseX); // end Exercise);                    
-
-                    BuildRoutine(2);
+                    //Add a new exercise
+                    AddNewExercise(PageExerciseObject);
                 }
 
                 // remember to remove the event handler:
@@ -1110,6 +1595,39 @@ namespace TrackWorkout.Pages.Routine
 
             }
 
+        }
+
+        private void AddNewExercise(ExerciseList pageExerciseObject)
+        {
+            RoutineList NewExerciseObject = new RoutineList();
+
+            NewExerciseObject.ExerciseDescription = pageExerciseObject.ExerciseDescription;
+            NewExerciseObject.KeepRow = false;
+            NewExerciseObject.Reps = "0";
+            NewExerciseObject.RestTimeAfterSet = 30;
+            NewExerciseObject.SetNumber = 1;
+            NewExerciseObject.Weight = "0";
+
+            int NewExerciseNumber = doc.Element("Routine").Elements("Exercise").Max(Number => Int32.Parse(Number.Element("Number").Value)) + 1;
+            NewExerciseObject.ExerciseNumber = NewExerciseNumber;
+
+            XElement ExerciseX = new XElement("Exercise",
+                                    new XAttribute("Superset", pageExerciseObject.SupersetID),
+                                    new XElement("Number", NewExerciseNumber),
+                                      new XElement("Description", pageExerciseObject.ExerciseDescription),
+                                      new XElement("ID", pageExerciseObject.ExerciseID),
+                                      new XElement("RestTimeAfterSet", 60),
+                                      new XElement("Set",
+                                          new XElement("Number", "1"),
+                                          new XElement("Reps", "0"),
+                                          new XElement("Weight", "0"),
+                                          new XElement("KeepRow", 0)
+                                         ) // end Set 
+                                     ); // end Exercise
+
+            doc.Element("Routine").Add(ExerciseX); // end Exercise);                    
+
+            BuildRoutine(2);
         }
 
         public void timer_Tick(object sender, ElapsedEventArgs e)
@@ -1640,8 +2158,49 @@ namespace TrackWorkout.Pages.Routine
                 await App.Current.MainPage.Navigation.PushPopupAsync(Pop, true);
             }
 
+
+
         }
 
+        private int GetSupersetIndex(XElement exercise, Grid ExerciseContent)
+        {
+            //Create a list of all exercises in the superset
+            IEnumerable<XElement> exerciseInSuperset = GetSupersetList(exercise);
 
+            //Declare variables to use for Grid placement
+            int totalExerciseCount = 0;
+            int totalSetCount = 0;
+            int totalrows = 0;
+            int exerciseContentRowCount = ExerciseContent.RowDefinitions.Count;
+
+            //Count the rows from the bottom to get to an index that is needed for the insert
+            foreach (var ex in exerciseInSuperset)
+            {
+                //If the exercise number is greater than the passed in then count it toward the index
+                if (Int32.Parse(ex.Element("Number").Value) > Int32.Parse(exercise.Element("Number").Value))
+                {
+                    //Count the sets in this exercise
+                    int numOfSets = ex.Elements("Set").Count();
+
+                    //increment the totals.
+                    //increment this twice to accoung for the weight and rep label row and the title row for the exercise. 
+                    totalExerciseCount = totalExerciseCount + 2;
+                    totalSetCount = totalSetCount + numOfSets;
+                }
+            }
+
+            //The additional 1 is to account for the add remove row
+            totalrows = 1 + totalSetCount + totalExerciseCount;
+
+            return exerciseContentRowCount - totalrows;
+        }
+
+        private IEnumerable<XElement> GetSupersetList(XElement exercise)
+        {
+            return doc.Element("Routine")
+                      .Elements("Exercise")
+                      .Where(x => x.Attribute("SupersetID").Value == exercise.Attribute("SupersetID").Value)
+                      .OrderBy(x => x.Element("Number").Value);
+        }
     }
 }

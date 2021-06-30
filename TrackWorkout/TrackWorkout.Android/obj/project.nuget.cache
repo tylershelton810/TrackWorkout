@@ -1,13 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "DRcJP1fv5yE76rjSkfq6sFktisNaSaF0hxvSGbHseJN8bjRWRHO+1HU9UvwlJBu8hTiPzbZzJGiDoLIxYdACTQ==",
+  "dgSpecHash": "3ODQW/bHgcjS8WrEITqe5CxuthnoeHWhFsbKR2J1F0j0jYvqaDUDEc07tOZRi9IT06aPkWhguMairVtqQPReyw==",
   "success": true,
   "projectFilePath": "/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.Android/TrackWorkout.Android.csproj",
   "expectedPackageFiles": [
     "/Users/tyler/.nuget/packages/acr.userdialogs/7.0.35/acr.userdialogs.7.0.35.nupkg.sha512",
     "/Users/tyler/.nuget/packages/andhud/1.4.2/andhud.1.4.2.nupkg.sha512",
-    "/Users/tyler/.nuget/packages/auth0.oidcclient.android/3.1.2/auth0.oidcclient.android.3.1.2.nupkg.sha512",
-    "/Users/tyler/.nuget/packages/auth0.oidcclient.core/3.1.2/auth0.oidcclient.core.3.1.2.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/auth0.oidcclient.android/3.2.1/auth0.oidcclient.android.3.2.1.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/auth0.oidcclient.core/3.2.1/auth0.oidcclient.core.3.2.1.nupkg.sha512",
     "/Users/tyler/.nuget/packages/com.airbnb.android.lottie/3.0.5/com.airbnb.android.lottie.3.0.5.nupkg.sha512",
     "/Users/tyler/.nuget/packages/com.airbnb.xamarin.forms.lottie/3.0.3/com.airbnb.xamarin.forms.lottie.3.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/contextviewcell/2.0.1/contextviewcell.2.0.1.nupkg.sha512",
@@ -51,7 +51,7 @@
     "/Users/tyler/.nuget/packages/system.runtime.compilerservices.unsafe/4.5.0/system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
     "/Users/tyler/.nuget/packages/system.security.cryptography.cng/4.5.0/system.security.cryptography.cng.4.5.0.nupkg.sha512",
     "/Users/tyler/.nuget/packages/system.security.securestring/4.3.0/system.security.securestring.4.3.0.nupkg.sha512",
-    "/Users/tyler/.nuget/packages/system.text.encodings.web/4.5.0/system.text.encodings.web.4.5.0.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/system.text.encodings.web/4.5.1/system.text.encodings.web.4.5.1.nupkg.sha512",
     "/Users/tyler/.nuget/packages/system.valuetuple/4.5.0/system.valuetuple.4.5.0.nupkg.sha512",
     "/Users/tyler/.nuget/packages/system.xml.xdocument/4.3.0/system.xml.xdocument.4.3.0.nupkg.sha512",
     "/Users/tyler/.nuget/packages/uikit/2.25.0/uikit.2.25.0.nupkg.sha512",
@@ -84,11 +84,12 @@
     "/Users/tyler/.nuget/packages/xamarin.android.support.interpolator/28.0.0.3/xamarin.android.support.interpolator.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.loader/28.0.0.3/xamarin.android.support.loader.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.localbroadcastmanager/28.0.0.3/xamarin.android.support.localbroadcastmanager.28.0.0.3.nupkg.sha512",
-    "/Users/tyler/.nuget/packages/xamarin.android.support.media.compat/26.0.2/xamarin.android.support.media.compat.26.0.2.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/xamarin.android.support.media.compat/28.0.0.3/xamarin.android.support.media.compat.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.print/28.0.0.3/xamarin.android.support.print.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.slidingpanelayout/28.0.0.3/xamarin.android.support.slidingpanelayout.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.swiperefreshlayout/28.0.0.3/xamarin.android.support.swiperefreshlayout.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.transition/28.0.0.3/xamarin.android.support.transition.28.0.0.3.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/xamarin.android.support.v4/28.0.0.3/xamarin.android.support.v4.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.v7.appcompat/28.0.0.3/xamarin.android.support.v7.appcompat.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.v7.cardview/28.0.0.3/xamarin.android.support.v7.cardview.28.0.0.3.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.android.support.v7.recyclerview/28.0.0.3/xamarin.android.support.v7.recyclerview.28.0.0.3.nupkg.sha512",
@@ -149,7 +150,7 @@
     "/Users/tyler/.nuget/packages/xamarin.firebase.common/60.1142.1/xamarin.firebase.common.60.1142.1.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.firebase.core/60.1142.1/xamarin.firebase.core.60.1142.1.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.firebase.iid/60.1142.1/xamarin.firebase.iid.60.1142.1.nupkg.sha512",
-    "/Users/tyler/.nuget/packages/xamarin.forms/4.5.0.725/xamarin.forms.4.5.0.725.nupkg.sha512",
+    "/Users/tyler/.nuget/packages/xamarin.forms/4.4.0.991864/xamarin.forms.4.4.0.991864.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.google.android.material/1.0.0.1/xamarin.google.android.material.1.0.0.1.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.google.guava.listenablefuture/1.0.0.2/xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512",
     "/Users/tyler/.nuget/packages/xamarin.googleplayservices.auth/60.1142.1/xamarin.googleplayservices.auth.60.1142.1.nupkg.sha512",
@@ -160,16 +161,6 @@
     "/Users/tyler/.nuget/packages/xamarin.googleplayservices.tasks/60.1142.1/xamarin.googleplayservices.tasks.60.1142.1.nupkg.sha512"
   ],
   "logs": [
-    {
-      "code": "NU1608",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: Xamarin.Android.Support.Media.Compat 26.0.2 requires Xamarin.Android.Support.Compat (= 26.0.2) but version Xamarin.Android.Support.Compat 28.0.0.3 was resolved.",
-      "libraryId": "Xamarin.Android.Support.Compat",
-      "targetGraphs": [
-        "MonoAndroid,Version=v10.0"
-      ]
-    },
     {
       "code": "NU1605",
       "level": "Warning",

@@ -9,7 +9,6 @@ namespace TrackWorkout.ViewModels
         string label = string.Empty;
         string validDate = string.Empty;
         bool invalidCharacter = false;
-        bool invalidDateEntered = false;
 
         public string Label
         {

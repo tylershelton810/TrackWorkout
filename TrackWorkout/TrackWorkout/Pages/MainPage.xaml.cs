@@ -10,7 +10,6 @@ namespace TrackWorkout.Pages
     {
         List<String> AnimationTest = new List<String>();
         Boolean ShowPass;
-        GoogleUser user;
 
 
         public MainPage()
