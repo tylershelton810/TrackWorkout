@@ -13,12 +13,16 @@ namespace TrackWorkout.Pages.AddExercise
         List<ExerciseList> listExercises = new List<ExerciseList>();
         
         public ExerciseList returnExercise;
+        public XElement exercisePassedIn;
         public string TypeOfCall;
         public int SupersetID;
 
-        public Single(List<ExerciseList> exerciseList, string Type, int superID = 0)
+        public Single(List<ExerciseList> exerciseList, string Type, int superID = 0, XElement exercise = null)
         {
             InitializeComponent();
+
+            //This is stored to be used with supersets.
+            exercisePassedIn = exercise;
 
             //This is used to know what called the function 
             TypeOfCall = Type;

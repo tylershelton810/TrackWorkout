@@ -1,14 +1,37 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{F5858269-9C3B-4050-86FD-64149D37C8E0}|Default">
   <MonoDevelop.Ide.ItemProperties.TrackWorkout.Android PreferredExecutionTarget="Android.Android_Accelerated_Oreo" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TrackWorkout/TrackWorkout/Pages/AddExercise/PickExercise.xaml.cs">
     <Files>
-      <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" Line="1317" Column="115" />
+      <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" Line="581" Column="64" />
       <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml" />
-      <File FileName="TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" />
+      <File FileName="TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" Line="148" Column="26" />
       <File FileName="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInformationEdit.xaml" />
       <File FileName="TrackWorkout/TrackWorkout/ViewModels/DateEntry.cs" />
-      <File FileName="TrackWorkout/TrackWorkout/ViewModels/SimpleText.cs" />
+      <File FileName="TrackWorkout/TrackWorkout/ViewModels/SimpleText.cs" Line="1" Column="1" />
+      <File FileName="TrackWorkout/TrackWorkout/Pages/AddExercise/PickExercise.xaml.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TrackWorkout" expanded="True">
+            <Node name="TrackWorkout" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="AddExercise" expanded="True">
+                  <Node name="PickExercise.xaml" expanded="True">
+                    <Node name="PickExercise.xaml.cs" selected="True" />
+                  </Node>
+                  <Node name="Single.xaml" expanded="True" />
+                </Node>
+                <Node name="PopUps" expanded="True" />
+                <Node name="Routine" expanded="True">
+                  <Node name="RoutineInProgress.xaml" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -16,8 +39,8 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/AppDelegate.cs" relfile="TrackWorkout/TrackWorkout.iOS/AppDelegate.cs" line="20" column="1" />
-      <Breakpoint file="/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" relfile="TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" line="152" column="1" />
-      <Breakpoint file="/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" relfile="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" line="1422" column="1" />
+      <Breakpoint file="/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" relfile="TrackWorkout/TrackWorkout/Pages/AddExercise/Single.xaml.cs" line="156" column="1" />
+      <Breakpoint file="/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" relfile="TrackWorkout/TrackWorkout/Pages/Routine/RoutineInProgress.xaml.cs" line="1444" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />

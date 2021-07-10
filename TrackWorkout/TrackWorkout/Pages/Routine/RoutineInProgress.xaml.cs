@@ -524,43 +524,60 @@ namespace TrackWorkout.Pages.Routine
                         }
                         action = await DisplayActionSheet(exercise.Element("Description").Value + " Superset", "Cancel", null, "Combine with existing exercise?", "Add new exercise");
 
+                        // Create Exercise List
+                        List<ExerciseList> ExerciseListToPass = new List<ExerciseList>();
+
                         if (action == "Combine with existing exercise?")
                         {
-                        // Create Exercise List
-                        List<ExerciseList> ExerciseLstToPass = new List<ExerciseList>();
-
-                        //Get list of exercises in the current workout
-                        foreach (var holder in doc.Element("Routine").Elements("Exercise"))
+                            //Get list of exercises in the current workout
+                            foreach (var holder in doc.Element("Routine").Elements("Exercise"))
                             {
-                            //Ensure that the exercise where the options button was clicked does not make it in.
-                            if (exercise.Element("Description").Value != holder.Element("Description").Value)
+                                //Ensure that the exercise where the options button was clicked does not make it in.
+                                if (exercise.Element("Description").Value != holder.Element("Description").Value)
                                 {
                                     ExerciseList Obj = new ExerciseList
                                     {
-                                        ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseID.ToString()),
-                                        FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstLetter.ToString()),
-                                        ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseDescription,
-                                        FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCode.ToString()),
-                                        FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCodeDescription,
-                                        SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCode,
-                                        SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCodeDescription,
-                                        ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCode,
-                                        ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCodeDescription
+                                        ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().ExerciseID.ToString()),
+                                        FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().FirstLetter.ToString()),
+                                        ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().ExerciseDescription,
+                                        FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().FirstMuscleCode.ToString()),
+                                        FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().FirstMuscleCodeDescription,
+                                        SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().SecondMuscleCode,
+                                        SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().SecondMuscleCodeDescription,
+                                        ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().ThirdMuscleCode,
+                                        ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(holder.Element("ID").Value)).First().ThirdMuscleCodeDescription
                                     };
 
-                                    ExerciseLstToPass.Add(Obj);
+                                    ExerciseListToPass.Add(Obj);
                                 }
-                            }
-                        //Handle popup page 
-                        Application.Current.ModalPopping += HandleModalPopping;
-                            myPage = new AddExercise.Single(ExerciseLstToPass, "Superset", superSetID);
-
-                            await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
+                            }                            
                         }
                         else if (action == "Add new exercise")
                         {
+                            //Current Object to remove from the passed in list. 
+                            ExerciseList Obj = new ExerciseList
+                            {
+                                ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ExerciseID.ToString()),
+                                FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstLetter.ToString()),
+                                ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ExerciseDescription,
+                                FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstMuscleCode.ToString()),
+                                FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstMuscleCodeDescription,
+                                SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().SecondMuscleCode,
+                                SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().SecondMuscleCodeDescription,
+                                ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ThirdMuscleCode,
+                                ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ThirdMuscleCodeDescription
+                            };
 
+                            //Get the total list of exercises and subtract out the current one to be passed to the single page. 
+                            ExerciseListToPass = App.exerciseListApp;
+                            ExerciseListToPass.Remove(Obj);
                         }
+
+                        //Handle popup page 
+                        Application.Current.ModalPopping += HandleModalPopping;
+                        myPage = new AddExercise.Single(ExerciseListToPass, "Superset", superSetID, exercise);
+
+                        await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
                     }
                     else if (action == "Alter Rest Time")
                     {
@@ -750,43 +767,61 @@ namespace TrackWorkout.Pages.Routine
                     }
                     action = await DisplayActionSheet(exercise.Element("Description").Value + " Superset", "Cancel", null, "Combine with existing exercise?", "Add new exercise");
 
-                    if (action == "Combine with existing exercise?")
-                    {
-                            // Create Exercise List
-                            List<ExerciseList> ExerciseLstToPass = new List<ExerciseList>();
+                    // Create Exercise List
+                    List<ExerciseList> ExerciseListToPass = new List<ExerciseList>();
 
-                            //Get list of exercises in the current workout
-                            foreach (var holder in doc.Element("Routine").Elements("Exercise"))
+                    if (action == "Combine with existing exercise?")
+                    {                        
+                        //Get list of exercises in the current workout
+                        foreach (var holder in doc.Element("Routine").Elements("Exercise"))
                         {
-                                //Ensure that the exercise where the options button was clicked does not make it in.
-                                if (exercise.Element("Description").Value != holder.Element("Description").Value)
+                            //Ensure that the exercise where the options button was clicked does not make it in.
+                            if (exercise.Element("Description").Value != holder.Element("Description").Value)
                             {
                                 ExerciseList Obj = new ExerciseList
                                 {
-                                    ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseID.ToString()),
-                                    FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstLetter.ToString()),
-                                    ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ExerciseDescription,
-                                    FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCode.ToString()),
-                                    FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().FirstMuscleCodeDescription,
-                                    SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCode,
-                                    SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().SecondMuscleCodeDescription,
-                                    ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCode,
-                                    ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseDescription == holder.Element("Description").Value).First().ThirdMuscleCodeDescription
+                                    ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().ExerciseID.ToString()),
+                                    FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().FirstLetter.ToString()),
+                                    ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().ExerciseDescription,
+                                    FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().FirstMuscleCode.ToString()),
+                                    FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().FirstMuscleCodeDescription,
+                                    SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().SecondMuscleCode,
+                                    SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().SecondMuscleCodeDescription,
+                                    ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().ThirdMuscleCode,
+                                    ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID.ToString() == holder.Element("ID").Value).First().ThirdMuscleCodeDescription
                                 };
 
-                                ExerciseLstToPass.Add(Obj);
+                                ExerciseListToPass.Add(Obj);
                             }
-                        }
-                            //Handle popup page 
-                            Application.Current.ModalPopping += HandleModalPopping;
-                        myPage = new AddExercise.Single(ExerciseLstToPass, "Superset", superSetID);
-
-                        await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
+                        }                        
                     }
                     else if (action == "Add new exercise")
                     {
+                        //Current Object to remove from the passed in list. 
+                        ExerciseList Obj = new ExerciseList
+                        {
+                            ExerciseID = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ExerciseID.ToString()),
+                            FirstLetter = char.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstLetter.ToString()),
+                            ExerciseDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ExerciseDescription,
+                            FirstMuscleCode = int.Parse(App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstMuscleCode.ToString()),
+                            FirstMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().FirstMuscleCodeDescription,
+                            SecondMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().SecondMuscleCode,
+                            SecondMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().SecondMuscleCodeDescription,
+                            ThirdMuscleCode = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ThirdMuscleCode,
+                            ThirdMuscleCodeDescription = App.exerciseListApp.Where(x => x.ExerciseID == Int32.Parse(exercise.Element("ID").Value)).First().ThirdMuscleCodeDescription
+                        };
 
+                        //Get the total list of exercises and subtract out the current one to be passed to the single page. 
+                        ExerciseListToPass = App.exerciseListApp;
+                        //This is not working.......
+                        ExerciseListToPass.Remove(Obj);
                     }
+
+                    //Handle popup page 
+                    Application.Current.ModalPopping += HandleModalPopping;
+                    myPage = new AddExercise.Single(ExerciseListToPass, "Superset", superSetID, exercise);
+
+                    await Application.Current.MainPage.Navigation.PushModalAsync(myPage);
                 }
                 else if (action == "Alter Rest Time")
                 {
@@ -1580,7 +1615,7 @@ namespace TrackWorkout.Pages.Routine
                 else
                 {
                     //Add a new exercise
-                    AddNewExercise(PageExerciseObject);
+                    AddNewExercise(PageExerciseObject, myPage.exercisePassedIn);
                 }
 
                 // remember to remove the event handler:
@@ -1597,8 +1632,10 @@ namespace TrackWorkout.Pages.Routine
 
         }
 
-        private void AddNewExercise(ExerciseList pageExerciseObject)
+        //This is used to add a new Exercise to a superset
+        private void AddNewExercise(ExerciseList pageExerciseObject, XElement exercisePassedIn)
         {
+            //Create new Exercise Object
             RoutineList NewExerciseObject = new RoutineList();
 
             NewExerciseObject.ExerciseDescription = pageExerciseObject.ExerciseDescription;
@@ -1608,7 +1645,24 @@ namespace TrackWorkout.Pages.Routine
             NewExerciseObject.SetNumber = 1;
             NewExerciseObject.Weight = "0";
 
-            int NewExerciseNumber = doc.Element("Routine").Elements("Exercise").Max(Number => Int32.Parse(Number.Element("Number").Value)) + 1;
+            //Get variables needed to change exercise numbers
+            int passedInExerciseNumber = Int32.Parse(exercisePassedIn.Element("Number").Value);
+            //Increment all exercise numbers that are greater than the exercise that was passed in by 1
+            foreach (var exercise in doc.Element("Routine").Elements("Exercise"))
+            {
+                //Get the loop exercise number
+                int currentExerciseNumberInLoop = Int32.Parse(exercise.Element("Number").Value);
+
+                if (currentExerciseNumberInLoop > passedInExerciseNumber)
+                {
+                    //Set the new exercise number for the looped exercise
+                    exercise.Element("Number").Value = (currentExerciseNumberInLoop + 1).ToString();
+                }
+            }
+
+            //Get the NewExerciseNumber by adding 1 to the exercise that was passed in.
+            var NewExerciseNumber = passedInExerciseNumber++;
+
             NewExerciseObject.ExerciseNumber = NewExerciseNumber;
 
             XElement ExerciseX = new XElement("Exercise",
