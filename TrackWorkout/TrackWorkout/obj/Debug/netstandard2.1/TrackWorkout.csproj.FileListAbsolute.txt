@@ -48,4 +48,4 @@
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/obj/Debug/netstandard2.1/XamlC.stamp
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/obj/Debug/netstandard2.1/TrackWorkout.dll
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/obj/Debug/netstandard2.1/TrackWorkout.pdb
-/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/obj/Debug/netstandard2.1/TrackWorkout.csprojAssemblyReference.cache
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout/obj/Debug/netstandard2.1/TrackWorkout.csproj.AssemblyReference.cache

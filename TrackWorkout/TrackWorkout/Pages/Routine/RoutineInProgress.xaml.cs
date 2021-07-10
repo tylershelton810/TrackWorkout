@@ -1311,20 +1311,17 @@ namespace TrackWorkout.Pages.Routine
                     {
                         //Create a list of all exercises in the superset
                         IEnumerable<XElement> exerciseInSuperset = GetSupersetList(exercise);
+                        bool lastSetFirstExercise = true;
+                        int countExercisesInSuper = exerciseInSuperset.Count();
 
                         //If it is a superset it needs to loop through this call for each exercise in the superset
                         foreach (var eachExcercise in exerciseInSuperset)
                         {
                             isLastInSuper = false;
-                            bool isFirstInSuper = false;
 
                             if (eachExcercise == exerciseInSuperset.Last())
                             {
                                 isLastInSuper = true;
-                            }
-                            if (eachExcercise == exerciseInSuperset.First())
-                            {
-                                isFirstInSuper = true;
                             }
                             //Count the sets left before deleting
                             int numOfSets = Int32.Parse(
@@ -1341,8 +1338,14 @@ namespace TrackWorkout.Pages.Routine
                                 ExerciseContent.Children.Remove(child);
                             }
 
-                            //Remove Content row WHY IS THIS NOT DOING ANYTHING?????
-                            ExerciseContent.RowDefinitions.RemoveAt(index);
+                            //Move the child elements up the grid so we can remove the bottom rows after. 
+                            foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) > index))
+                            {
+                                Grid.SetRow(child, Grid.GetRow(child) - 1);
+                            }
+
+                            //Remove Content row 
+                            ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
 
                             // Remove from the xml
                             doc.Element("Routine")
@@ -1352,52 +1355,49 @@ namespace TrackWorkout.Pages.Routine
                                 .Where(z => z.Element("Number").Value == eachExcercise.Elements("Set").Max(y => y.Element("Number").Value))
                                 .Remove();
 
+                            //This is the last set in the superset
                             if (numOfSets == 1)
                             {
+                                //Remove all of the children out of grid
+                                foreach (var child in ExerciseContent.Children.ToList())
+                                {
+                                    ExerciseContent.Children.Remove(child);
+                                }
+
+                                //If this is the First time in this loop 
+                                if (lastSetFirstExercise)
+                                {
+                                    //Loop through the amount of exercises that are in the superset
+                                    for (int i = 0; i < countExercisesInSuper; i++)
+                                    {
+                                        //Remove that row
+                                        ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
+                                    }
+
+                                    //Set this so it does not make it into this if again for this super set
+                                    lastSetFirstExercise = false;
+                                }
+
+                                //Remove the add and remove row
+                                ExerciseContent.RowDefinitions.RemoveAt(ExerciseContent.RowDefinitions.Count - 1);
+                               
+                                if (isLastInSuper)
+                                {
+                                    //Get the index of the header in the gridStack by getting the index of the Frame which we can see at this point and subtracting one. 
+                                    var indexOfHeader = gridStack.Children.IndexOf(ExerciseFrame) - 1;
+                                    //Remove the frame from the gridStack all together if this is the last exercise in the superset
+                                    gridStack.Children.Remove(ExerciseFrame);
+                                    //Remove the header from the gridStack.
+                                    gridStack.Children.RemoveAt(indexOfHeader);
+                                }
+
                                 //Remove complete excercise
                                 //XML Data
                                 doc.Element("Routine")
                                    .Elements("Exercise")
                                    .Where(x => x.Element("ID").Value == eachExcercise.Element("ID").Value)
-                                   .Remove();
-
-                                //UI - The set has already been removed
-                                ExerciseContent.RowDefinitions.RemoveAt(index);
-
-                                if (isFirstInSuper)
-                                {
-                                    ExerciseHeader.Children.RemoveAt(1);
-                                    ExerciseHeader.Children.RemoveAt(0);
-                                    ExerciseHeader.RowDefinitions.RemoveAt(0);
-                                }
-                                //The exercise name is not in the header but in the ExerciseContent
-                                else
-                                {
-                                    //Remove the header children
-                                    foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == index - 1))
-                                    {
-                                        ExerciseContent.Children.Remove(child);
-                                    }
-
-                                    //Remove the header Content row
-                                    ExerciseContent.RowDefinitions.RemoveAt(index);
-
-                                    if (isLastInSuper)
-                                    {
-                                        //Remove the header children
-                                        foreach (var child in ExerciseContent.Children.ToList().Where(child => Grid.GetRow(child) == index))
-                                        {
-                                            ExerciseContent.Children.Remove(child);
-                                        }
-                                        //Remove the Add Remove buttons
-                                        ExerciseContent.RowDefinitions.RemoveAt(index);
-                                    }
-                                }
+                                   .Remove();                               
                             }
-
-                            var test = doc;
-
-
                         }
                     }
                     else

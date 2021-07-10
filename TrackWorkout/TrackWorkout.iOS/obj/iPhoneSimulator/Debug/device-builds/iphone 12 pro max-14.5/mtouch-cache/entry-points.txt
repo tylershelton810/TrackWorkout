@@ -1143,6 +1143,10 @@ Function=xamarin_localized_string_format_9
 	/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/mtouch-cache/1-Link/Xamarin.iOS.dll
 Function=xamarin_init_nsthread
 	/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_release_managed_ref
+	/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/mtouch-cache/1-Link/Xamarin.iOS.dll
+Function=xamarin_set_gchandle_with_flags_safe
+	/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/mtouch-cache/1-Link/Xamarin.iOS.dll
 Function=xamarin_os_log
 	/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/mtouch-cache/1-Link/Xamarin.iOS.dll
 ObjectiveCClass=OBJC_CLASS_$_LOTAnimationView

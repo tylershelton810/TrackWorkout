@@ -112,12 +112,12 @@
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/zh-Hant/Xamarin.Forms.Platform.iOS.resources.dll
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.dll
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/bin/iPhoneSimulator/Debug/TrackWorkout.pdb
-/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csprojAssemblyReference.cache
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csproj.CoreCompileInputs.cache
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/XamlC.stamp
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csproj.CopyComplete
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.exe
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.pdb
+/Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/TrackWorkout.iOS.csproj.AssemblyReference.cache
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/actool/_PartialAppManifest.items
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/actool/_BundleResourceWithLogicalName.items
 /Users/tyler/Projects/TrackWorkout/TrackWorkout/TrackWorkout.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 12 pro max-14.5/ibtool/_BundleResourceWithLogicalName.items

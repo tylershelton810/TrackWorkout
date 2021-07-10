@@ -568,6 +568,8 @@ _xamarin_localized_string_format_7
 _xamarin_localized_string_format_8
 _xamarin_localized_string_format_9
 _xamarin_init_nsthread
+_xamarin_release_managed_ref
+_xamarin_set_gchandle_with_flags_safe
 _xamarin_os_log
 _OBJC_CLASS_$_LOTAnimationView
 _OBJC_CLASS_$_LOTAnimatedControl
